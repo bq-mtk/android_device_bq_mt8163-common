@@ -140,5 +140,9 @@ SUPPRESS_MTK_AUDIO_BLOB_ERR_MSG := true
 # MTK AV blob flag
 LEGACY_MTK_AV_BLOB := true
 
+# LineageOS Hardware
+BOARD_USES_LINEAGE_HARDWARE := true
+BOARD_HARDWARE_CLASS := $(COMMON_PATH)/lineagehw
+
 # HIDL Manifest
 DEVICE_MANIFEST_FILE := $(COMMON_PATH)/manifest.xml
