@@ -1,8 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <log/log.h>
+#include <stdint.h>
 
-#define LOG_TAG "ProgramBinaryService"
+#include "common.h"
 
 extern "C" {
 
@@ -19,44 +19,28 @@ extern "C" {
     }
 
     /* android::IPprogramBinaryService::uiRendererProgramAtlasTerminate */
-    int _ZN7android10uirenderer12ProgramAtlas9terminateEv(void)
-    {
-        return 0x0;
-    }
+    void _ZN7android10uirenderer12ProgramAtlas9terminateEv() { /* Nothing here */ }
 
     /* android::IProgramBinaryService::uiRendererProgramAtlasLoadProgramBinariesAndDeleteEPliPvi */
-    int _ZN7android10uirenderer12ProgramAtlas28loadProgramBinariesAndDeleteEPliPvi(void)
-    {
-        return 0x0;
-    }
+    void _ZN7android10uirenderer12ProgramAtlas28loadProgramBinariesAndDeleteEPliPvi(PGM_GNUC_UNUSED int64_t* map, 
+        PGM_GNUC_UNUSED int mapLength, PGM_GNUC_UNUSED void* buffer, PGM_GNUC_UNUSED int length) { /* Nothing here */ }
 
     /* android::IprogramBinaryService::C2Ev */
-    int _ZN7android21IProgramBinaryServiceC2Ev(bool C2Ev)
+    bool _ZN7android21IProgramBinaryServiceC2Ev() 
     {
-        if (C2Ev) {
-           ALOGI("C2Ev is true");
-           return 0;
-        } else {
-           ALOGI("C2Ev is false, abort...");
-           return -1;
-        }
+        return 0x0;
     }
 
     /* android::IprogramBinaryService::D2Ev */
-    int _ZN7android21IProgramBinaryServiceD2Ev(bool D2Ev)
+    bool _ZN7android21IProgramBinaryServiceD2Ev() 
     {
-        if (D2Ev) {
-           ALOGI("D2Ev is true");
-           return 0;
-        } else {
-           ALOGI("D2Ev is false, abort...");
-           return -1;
-        }
+        return 0x0;
     }
 
-    int _ZN7android10uirenderer12ProgramAtlas14createProgramsEPlPi(uint32_t name)
+    /* android::IprogramBinaryService::uiRendererProgramAtlasCreatePrograms */
+    int _ZN7android10uirenderer12ProgramAtlas14createProgramsEPlPi(PGM_GNUC_UNUSED int64_t* map, PGM_GNUC_UNUSED int* mapLength)
     {
-        return 0;
+        return 0x0;
     }
 
 }

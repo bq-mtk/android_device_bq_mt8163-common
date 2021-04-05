@@ -1,3 +1,5 @@
+#define LOG_TAG "xlog"
+
 #include <log/log.h>
 #include <cutils/log.h>
 #include <sys/stat.h>
@@ -14,7 +16,10 @@
 
 #define XLOG_FILTER_DEFAULT_LEVEL 0x00223222
 
-#define LOG_TAG "xlog"
+#ifdef __cplusplus
+extern "C"
+{
+#endif
 
 struct xlog_entry {
 	char name[XLOG_NAME_MAX_LEN];
@@ -63,3 +68,7 @@ int xlogf_tag_set_level(const char *name, uint32_t level)
     }
     return ret;
 }
+
+#ifdef __cplusplus
+}
+#endif

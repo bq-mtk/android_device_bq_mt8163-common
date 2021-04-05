@@ -26,15 +26,17 @@ PRODUCT_COPY_FILES += \
 # Shim symbols
 PRODUCT_PACKAGES += \
     libshim_bionic \
+    libshim_atomic \
     libshim_audio \
     libshim_omx \
-    libshim_ui \
-    libshim_gui \
+    libshim_camera \
     libshim_xlog \
     libshim_gps \
     libshim_program_binary_service \
     libshim_wvm \
-    libshim_drm
+    libshim_drm \
+    libshim_media \
+    libshim_mute_log
 
 # Power
 PRODUCT_PACKAGES += \

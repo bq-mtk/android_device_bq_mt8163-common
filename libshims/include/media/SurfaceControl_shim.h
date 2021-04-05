@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2020 The LineageOS Project
+ * Copyright (C) 2020 The Android Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,22 +14,14 @@
  * limitations under the License.
  */
 
-#include <pthread.h>
-#include <sys/system_properties.h>
+namespace android {
 
-/* extern bool __system_property_wait(const prop_info* pi, uint32_t old_serial, uint32_t* new_serial_ptr,
-            const timespec* relative_timeout); */
+// MTK
+#ifdef MTK_HARDWARE
+    // Be compatible with Marshmallow/Nougat SurfaceComposer
+    extern sp<SurfaceControl> _ZN7android21SurfaceComposerClient13createSurfaceERKNS_7String8EjjijPNS_14SurfaceControlEii(const String8& name, uint32_t w, uint32_t h, PixelFormat format, uint32_t flags, SurfaceControl* parent, int32_t windowType, int32_t ownerUid);
+    extern void _ZN7android14SurfaceControl8setLayerEi(int32_t);
+#endif // MTK_HARDWARE
 
-extern "C" {
-pid_t __pthread_gettid(pthread_t t) {
-    return pthread_gettid_np(t);
-  }
-}
+}; // namespace android
 
-extern "C" {
-uint32_t __system_property_wait_any(uint32_t old_serial) {
-  uint32_t new_serial;
-  __system_property_wait(nullptr, old_serial, &new_serial, nullptr);
-  return new_serial;
-  }
-}

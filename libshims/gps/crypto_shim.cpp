@@ -1,7 +1,8 @@
-#include <stdint.h>
-#include <log/log.h>
+#define LOG_TAG "CRYPTO_SHIM"
 
-#define LOG_TAG "CRYPTO"
+#include <stdint.h>
+#include <stdlib.h>
+#include <log/log.h>
 
 extern "C"
 {
@@ -10,9 +11,9 @@ extern "C"
         free(str);
     }
 
-    int CRYPTO_malloc(int num, const char *file, int line) {
+    void CRYPTO_malloc(int num, const char *file, int line) {
         ALOGD("CRYPTO_malloc: num=%d file=%s line=%d", num, file, line);
-        return malloc(num);
+        malloc(num);
     }
 
     void CRYPTO_lock(int mode, int type, const char *file, int line) {
