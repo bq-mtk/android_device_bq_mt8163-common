@@ -23,7 +23,7 @@ TARGET_KERNEL_ARCH := arm64
 TARGET_KERNEL_HEADER_ARCH := arm64
 TARGET_KERNEL_CROSS_COMPILE_PREFIX := $(shell pwd)/prebuilts/gcc/linux-x86/aarch64/aarch64-linux-android-4.9/bin/aarch64-linux-android-
 BOARD_KERNEL_IMAGE_NAME := Image.gz-dtb
-TARGET_KERNEL_SOURCE := kernel/bq/aquaris_m8
+TARGET_KERNEL_SOURCE := kernel/bq/mt8163
 TARGET_USES_64_BIT_BINDER := true
 
 # Boot Image Args
