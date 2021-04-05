@@ -63,6 +63,11 @@ PRODUCT_PACKAGES += \
     hostapd_cli \
     libwpa_client
 
+# HIDL
+PRODUCT_PACKAGES += \
+    android.hidl.base@1.0 \
+    android.hidl.manager@1.0
+
 # Graphic
 PRODUCT_PACKAGES += \
     android.hardware.graphics.allocator@2.0-impl \
