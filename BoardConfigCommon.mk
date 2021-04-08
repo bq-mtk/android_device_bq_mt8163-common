@@ -80,6 +80,7 @@ TARGET_HAS_LEGACY_CAMERA_HAL1 := true
 TARGET_NEEDS_LEGACY_CAMERA_HAL1_DYN_NATIVE_HANDLE := true
 USE_CAMERA_STUB := true
 TARGET_USES_NON_TREBLE_CAMERA := true
+TARGET_SPECIFIC_CAMERA_PARAMETER_LIBRARY := libcamera_parameters_mtk
 
 # Enable Minikin text layout engine (will be the default soon)
 USE_MINIKIN := true

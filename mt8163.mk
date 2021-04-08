@@ -18,7 +18,8 @@ DEVICE_PACKAGE_OVERLAYS += \
 # Camera
 PRODUCT_PACKAGES += \
     android.hardware.camera.provider@2.4-impl-legacy \
-    Snap
+    Snap \
+    libcamera_parameters_mtk
 
 PRODUCT_COPY_FILES += \
     $(COMMON_PATH)/configs/init/mediaserver.rc:system/etc/init/mediaserver.rc
