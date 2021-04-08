@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2018 The Android Open Source Project
+ * Copyright (C) 2016 CyanogenMod
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -15,11 +15,12 @@
  */
 #include <errno.h>
 #include <string.h>
+#include <stdlib.h>
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <fcntl.h>
 
-#define LOG_TAG "PowerHAL"
+#define LOG_TAG "MTK PowerHAL"
 #include <utils/Log.h>
 
 #include <hardware/hardware.h>
@@ -35,6 +36,7 @@
 
 static void power_init(struct power_module *module)
 {
+    ALOGI("MTK power HAL initing.");
 }
 
 static void power_set_interactive(struct power_module *module, int on)
@@ -90,8 +92,50 @@ static void power_hint(struct power_module *module, power_hint_t hint,
     }
 }
 
+void set_feature(struct power_module *module, feature_t feature, int state)
+{
+#ifdef TAP_TO_WAKE_NODE
+    char tmp_str[64];
+    if (feature == POWER_FEATURE_DOUBLE_TAP_TO_WAKE) {
+        snprintf(tmp_str, 64, "%d", state);
+        power_fwrite(TAP_TO_WAKE_NODE, tmp_str);
+        return;
+    }
+#endif
+}
+
+static int power_open(const hw_module_t* module, const char* name,
+                    hw_device_t** device)
+{
+    ALOGD("%s: enter; name=%s", __FUNCTION__, name);
+    int retval = 0; /* 0 is ok; -1 is error */
+
+    if (strcmp(name, POWER_HARDWARE_MODULE_ID) == 0) {
+        power_module_t *dev = (power_module_t *)calloc(1,
+                sizeof(power_module_t));
+
+        if (dev) {
+            /* Common hw_device_t fields */
+            dev->common.tag = HARDWARE_DEVICE_TAG;
+            dev->common.module_api_version = POWER_MODULE_API_VERSION_0_2;
+            dev->common.hal_api_version = HARDWARE_HAL_API_VERSION;
+
+            dev->init = power_init;
+            dev->powerHint = power_hint;
+
+            *device = (hw_device_t*)dev;
+        } else
+            retval = -ENOMEM;
+    } else {
+        retval = -EINVAL;
+    }
+
+    ALOGD("%s: exit %d", __FUNCTION__, retval);
+    return retval;
+}
+
 static struct hw_module_methods_t power_module_methods = {
-    .open = NULL,
+    .open = power_open,
 };
 
 struct power_module HAL_MODULE_INFO_SYM = {
@@ -100,12 +144,13 @@ struct power_module HAL_MODULE_INFO_SYM = {
         .module_api_version = POWER_MODULE_API_VERSION_0_2,
         .hal_api_version = HARDWARE_HAL_API_VERSION,
         .id = POWER_HARDWARE_MODULE_ID,
-        .name = "Mediatek Power HAL",
-        .author = "The Android Open Source Project",
+        .name = "MTK Power HAL",
+        .author = "Cyanogen",
         .methods = &power_module_methods,
     },
 
     .init = power_init,
     .setInteractive = power_set_interactive,
+    .setFeature = set_feature,
     .powerHint = power_hint,
 };
