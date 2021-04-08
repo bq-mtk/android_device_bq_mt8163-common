@@ -7,9 +7,9 @@
  * reproduction, modification, use or disclosure of MediaTek Software, and
  * information contained herein, in whole or in part, shall be strictly
  * prohibited.
- * 
+ *
  * MediaTek Inc. (C) 2010. All rights reserved.
- * 
+ *
  * BY OPENING THIS FILE, RECEIVER HEREBY UNEQUIVOCALLY ACKNOWLEDGES AND AGREES
  * THAT THE SOFTWARE/FIRMWARE AND ITS DOCUMENTATIONS ("MEDIATEK SOFTWARE")
  * RECEIVED FROM MEDIATEK AND/OR ITS REPRESENTATIVES ARE PROVIDED TO RECEIVER
@@ -55,7 +55,7 @@
 #define LOG_TAG "lights"
 
 
-#include <log/log.h>
+#include <cutils/log.h>
 
 #include <stdint.h>
 #include <string.h>
@@ -139,14 +139,25 @@ char const*const BUTTON_FILE
         = "/sys/class/leds/button-backlight/brightness";
 
 //ALPS0804285 add for delay
-int led_wait_delay(unsigned int ms)
+int led_wait_delay(int ms)
 {
-	struct timeval begin, curr;
-	long long time_diff = 0;
-	gettimeofday(&begin, NULL);
-	while ((unsigned int)time_diff < ms) {
-		gettimeofday(&curr, NULL);
-		time_diff = (curr.tv_sec*1000LL + curr.tv_usec/1000) - (begin.tv_sec*1000LL + begin.tv_usec/1000);
+	struct timespec req = {.tv_sec = 0, .tv_nsec = ms*1000000};
+	struct timespec rem;
+	int ret = nanosleep(&req, &rem);
+
+	while(ret)
+	{
+		if(errno == EINTR)
+		{
+			req.tv_sec  = rem.tv_sec;
+			req.tv_nsec = rem.tv_nsec;
+			ret = nanosleep(&req, &rem);
+		}
+		else
+		{
+			perror("nanosleep");
+			return errno;
+		}
 	}
 	return 0;
 }
@@ -303,51 +314,7 @@ blink_green(int level, int onMS, int offMS)
 }
 
 static int
-blink_blue(int level, int onMS, int offMS)
-{
-	static int preStatus = 0; // 0: off, 1: blink, 2: no blink
-	int nowStatus;
-	int i = 0;
-
-	if (level == 0)
-		nowStatus = 0;
-	else if (onMS && offMS)
-		nowStatus = 1;
-	else
-		nowStatus = 2;
-
-	if (preStatus == nowStatus)
-		return -1;
-
-#ifdef LIGHTS_DBG_ON
-	ALOGD("blink_blue, level=%d, onMS=%d, offMS=%d\n", level, onMS, offMS);
-#endif
-	if (nowStatus == 0) {
-        	write_int(BLUE_LED_FILE, 0);
-	}
-	else if (nowStatus == 1) {
-//        	write_int(BLUE_LED_FILE, level); // default full brightness
-		write_str(BLUE_TRIGGER_FILE, "timer");
-		while (((access(BLUE_DELAY_OFF_FILE, F_OK) == -1) || (access(BLUE_DELAY_OFF_FILE, R_OK|W_OK) == -1)) && i<10) {
-			ALOGD("BLUE_DELAY_OFF_FILE doesn't exist or cannot write!!\n");
-			led_wait_delay(5);//sleep 5ms for wait kernel LED class create led delay_off/delay_on node of fs
-			i++;
-		}
-		write_int(BLUE_DELAY_OFF_FILE, offMS);
-		write_int(BLUE_DELAY_ON_FILE, onMS);
-	}
-	else {
-		write_str(BLUE_TRIGGER_FILE, "none");
-        	write_int(BLUE_LED_FILE, 255); // default full brightness
-	}
-
-	preStatus = nowStatus;
-
-	return 0;
-}
-
-static int
-handle_trackball_light_locked(__attribute__((__unused__)) struct light_device_t* dev)
+handle_trackball_light_locked(struct light_device_t* dev)
 {
     int mode = g_attention;
 
@@ -391,7 +358,7 @@ set_light_backlight(struct light_device_t* dev,
 }
 
 static int
-set_light_keyboard(__attribute__((__unused__)) struct light_device_t* dev,
+set_light_keyboard(struct light_device_t* dev,
         struct light_state_t const* state)
 {
     int err = 0;
@@ -403,7 +370,7 @@ set_light_keyboard(__attribute__((__unused__)) struct light_device_t* dev,
 }
 
 static int
-set_light_buttons(__attribute__((__unused__)) struct light_device_t* dev,
+set_light_buttons(struct light_device_t* dev,
         struct light_state_t const* state)
 {
     int err = 0;
@@ -416,11 +383,11 @@ set_light_buttons(__attribute__((__unused__)) struct light_device_t* dev,
 }
 
 static int
-set_speaker_light_locked(__attribute__((__unused__)) struct light_device_t* dev,
+set_speaker_light_locked(struct light_device_t* dev,
         struct light_state_t const* state)
 {
     int len;
-    int alpha, red, green, blue;
+    int alpha, red, green;
     int onMS, offMS;
     unsigned int colorRGB;
 
@@ -447,30 +414,26 @@ set_speaker_light_locked(__attribute__((__unused__)) struct light_device_t* dev,
     if (alpha) {
     	red = (colorRGB >> 16) & 0xFF;
     	green = (colorRGB >> 8) & 0xFF;
-    	blue = colorRGB & 0xFF;
     } else { // alpha = 0 means turn the LED off
-    	red = green = blue = 0;
+    	red = green = 0;
     }
 
     if (red) {
-        blink_green(0, 0, 0);
-        blink_blue(0, 0, 0);
-        blink_red(red, onMS, offMS);
+        if (colorRGB == -40448) { // orange (#ff6200)
+            blink_green(red, onMS, offMS);
+            blink_red(red, onMS, offMS);
+        } else {
+            blink_green(0, 0, 0);
+            blink_red(red, onMS, offMS);
+        }
     }
     else if (green) {
         blink_red(0, 0, 0);
-        blink_blue(0, 0, 0);
         blink_green(green, onMS, offMS);
-    }
-    else if (blue) {
-        blink_red(0, 0, 0);
-        blink_green(0, 0, 0);
-        blink_blue(blue, onMS, offMS);
     }
     else {
         blink_red(0, 0, 0);
         blink_green(0, 0, 0);
-        blink_blue(0, 0, 0);
     }
 
     return 0;
@@ -563,45 +526,21 @@ static int open_lights(const struct hw_module_t* module, char const* name,
 
     if (0 == strcmp(LIGHT_ID_BACKLIGHT, name)) {
         set_light = set_light_backlight;
-        if (access(LCD_FILE, F_OK) < 0)
-            return -errno;
     }
     else if (0 == strcmp(LIGHT_ID_KEYBOARD, name)) {
         set_light = set_light_keyboard;
-        if (access(KEYBOARD_FILE, F_OK) < 0)
-            return -errno;
     }
     else if (0 == strcmp(LIGHT_ID_BUTTONS, name)) {
         set_light = set_light_buttons;
-        if (access(BUTTON_FILE, F_OK) < 0)
-            return -errno;
     }
     else if (0 == strcmp(LIGHT_ID_BATTERY, name)) {
         set_light = set_light_battery;
-        if (access(RED_LED_FILE, F_OK) < 0)
-            return -errno;
-        if (access(GREEN_LED_FILE, F_OK) < 0)
-            return -errno;
-        if (access(BLUE_LED_FILE, F_OK) < 0)
-            return -errno;
     }
     else if (0 == strcmp(LIGHT_ID_NOTIFICATIONS, name)) {
         set_light = set_light_notifications;
-        if (access(RED_LED_FILE, F_OK) < 0)
-            return -errno;
-        if (access(GREEN_LED_FILE, F_OK) < 0)
-            return -errno;
-        if (access(BLUE_LED_FILE, F_OK) < 0)
-            return -errno;
     }
     else if (0 == strcmp(LIGHT_ID_ATTENTION, name)) {
         set_light = set_light_attention;
-        if (access(RED_LED_FILE, F_OK) < 0)
-            return -errno;
-        if (access(GREEN_LED_FILE, F_OK) < 0)
-            return -errno;
-        if (access(BLUE_LED_FILE, F_OK) < 0)
-            return -errno;
     }
     else {
         return -EINVAL;
@@ -610,9 +549,6 @@ static int open_lights(const struct hw_module_t* module, char const* name,
     pthread_once(&g_init, init_globals);
 
     struct light_device_t *dev = malloc(sizeof(struct light_device_t));
-    if (!dev)
-        return -ENOMEM;
-
     memset(dev, 0, sizeof(*dev));
 
     dev->common.tag = HARDWARE_DEVICE_TAG;
@@ -642,3 +578,4 @@ struct hw_module_t HAL_MODULE_INFO_SYM = {
     .author = "MediaTek",
     .methods = &lights_module_methods,
 };
+
