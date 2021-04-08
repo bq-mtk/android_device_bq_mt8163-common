@@ -93,13 +93,15 @@ Return<void> Light::getSupportedTypes(getSupportedTypes_cb _hidl_cb)  {
 
 const static std::map<Type, const char*> kLogicalLights = {
     {Type::BACKLIGHT,     LIGHT_ID_BACKLIGHT},
-    {Type::KEYBOARD,      LIGHT_ID_KEYBOARD},
-    {Type::BUTTONS,       LIGHT_ID_BUTTONS},
     {Type::BATTERY,       LIGHT_ID_BATTERY},
     {Type::NOTIFICATIONS, LIGHT_ID_NOTIFICATIONS},
+# ifdef EXTRA_HARDWARE
+    {Type::KEYBOARD,      LIGHT_ID_KEYBOARD},
+    {Type::BUTTONS,       LIGHT_ID_BUTTONS},
     {Type::ATTENTION,     LIGHT_ID_ATTENTION},
     {Type::BLUETOOTH,     LIGHT_ID_BLUETOOTH},
     {Type::WIFI,          LIGHT_ID_WIFI}
+# endif
 };
 
 light_device_t* getLightDevice(const char* name) {
