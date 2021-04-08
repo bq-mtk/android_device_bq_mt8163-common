@@ -1,0 +1,13 @@
+on init
+
+service hdmi /system/bin/hdmi
+        class main
+        user system
+        group system net_admin inet
+        disabled
+
+on property:sys.service.hdmi.enable=0
+		stop hdmi
+
+on property:sys.service.hdmi.enable=1
+		start hdmi

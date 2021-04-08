@@ -237,6 +237,17 @@ PRODUCT_PACKAGES += \
     android.hardware.sensors@1.0-impl-mediatek \
     android.hardware.sensors@1.0-service-mediatek
 
+# HDMI
+PRODUCT_PACKAGES += \
+    Overscan \
+    hdmi \
+    hdmimanager \
+    libhdmiservice \
+    libhdmi
+
+PRODUCT_PROPERTY_OVERRIDES += \
+    sys.service.hdmi.enable=0
+
 # Filesystem management tools
 PRODUCT_PACKAGES += \
 	e2fsck \
