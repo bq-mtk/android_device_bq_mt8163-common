@@ -156,6 +156,7 @@ PRODUCT_PACKAGES += \
     android.hardware.soundtrigger@2.0-impl \
     audio.a2dp.default \
     audio.r_submix.default \
+    audio.r_submix.mt8163 \
     audio.usb.default \
     libaudio-resampler \
     libtinyalsa \
