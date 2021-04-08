@@ -35,13 +35,83 @@
  * any receiver's applicable license agreements with MediaTek Inc.
  */
 
-#ifndef __CUST_BT_H__
-#define __CUST_BT_H__
+#ifndef _BT_MTK_H
+#define _BT_MTK_H
 
-/* SERIAL PORT */
-#define CUST_BT_SERIAL_PORT "/dev/stpbt"
-/* BAUDRATE */
-#define CUST_BT_BAUD_RATE   4000000 /* use 4M but is not controlled by bt directly */
+#include "bt_hci_bdroid.h"
+#include "bt_vendor_lib.h"
+#include "CFG_BT_File.h"
+#include "os_dep.h"
 
-#endif /* __CUST_BT_H__ */
 
+#define HCI_CMD_MAX_SIZE        251
+
+/********************************************************************************
+** Macros to get and put bytes to and from a stream (Little Endian format).
+*/
+#define UINT16_TO_STREAM(p, u16) {*(p)++ = (UINT8)(u16); *(p)++ = (UINT8)((u16) >> 8);}
+#define STREAM_TO_UINT16(u16, p) {u16 = ((UINT16)(*(p)) + (((UINT16)(*((p) + 1))) << 8)); (p) += 2;}
+
+
+/********************************************************************************
+** Structure Definitions
+*/
+typedef enum {
+  CMD_SUCCESS,
+  CMD_FAIL,
+  CMD_PENDING,
+} HCI_CMD_STATUS_T;
+
+typedef union {
+  ap_nvram_btradio_struct fields;
+  unsigned char raw[sizeof(ap_nvram_btradio_struct)];
+} BT_NVRAM_DATA_T;
+
+typedef BOOL (*HCI_CMD_FUNC_T) (HC_BT_HDR *);
+typedef struct {
+  HCI_CMD_FUNC_T command_func;
+} HCI_SEQ_T;
+
+typedef INT32 (*SETUP_UART_PARAM_T)(UINT32 u4Baud, UINT32 u4FlowControl);
+
+typedef struct {
+  UINT32 chip_id;
+  BT_NVRAM_DATA_T bt_nvram;
+  UINT32 bt_baud;
+  UINT32 host_baud;
+  UINT32 flow_ctrl;
+  SETUP_UART_PARAM_T host_uart_cback;
+  PUCHAR patch_ext_data;
+  UINT32 patch_ext_len;
+  UINT32 patch_ext_offset;
+  PUCHAR patch_data;
+  UINT32 patch_len;
+  UINT32 patch_offset;
+  HCI_SEQ_T *cur_script;
+} BT_INIT_VAR_T;
+
+/* Thread control block for Controller initialize */
+typedef struct {
+  pthread_t worker_thread;
+  pthread_mutex_t mutex;
+  pthread_mutexattr_t attr;
+  pthread_cond_t cond;
+  BOOL worker_thread_running;
+} BT_INIT_CB_T;
+
+
+/********************************************************************************
+** Function Declaration
+*/
+void set_callbacks(const bt_vendor_callbacks_t* p_cb);
+void clean_callbacks(void);
+int init_uart(void);
+void close_uart(void);
+int mtk_fw_cfg(void);
+int mtk_sco_cfg(void);
+int mtk_prepare_off(void);
+int mtk_set_fw_assert(uint8_t reason);
+int mtk_set_psm_control(bool enable);
+void clean_resource(void);
+
+#endif
