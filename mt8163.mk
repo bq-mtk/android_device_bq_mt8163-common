@@ -45,10 +45,22 @@ PRODUCT_PACKAGES += \
 
 # GPS
 PRODUCT_PACKAGES += \
-    android.hardware.gnss@1.0-impl
+    android.hardware.gnss@1.0-impl \
+    gps.mt8163
 
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.force.gps.mode=gnss
+
+# MNLD
+ifeq ($(TARGET_PROVIDES_MNLD_HAL),false) 
+PRODUCT_PACKAGES += \
+    libmnl \
+    mnld \
+    libDR \
+    libgeofence \
+    libhostill \
+    libsupl
+endif
 
 # MTK WPA Supplicant Libraries
 PRODUCT_PACKAGES += \
