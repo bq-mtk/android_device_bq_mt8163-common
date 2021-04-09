@@ -24,6 +24,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     $(COMMON_PATH)/configs/init/mediaserver.rc:system/etc/init/mediaserver.rc
 
+# Debugging tool
+PRODUCT_PACKAGES += \
+    debug_tool
+
 # Shim symbols
 PRODUCT_PACKAGES += \
     libshim_bionic \
