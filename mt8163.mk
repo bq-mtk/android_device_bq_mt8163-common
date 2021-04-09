@@ -310,6 +310,14 @@ PRODUCT_PACKAGES += \
 	mkfs.ntfs \
 	mount.ntfs
 
+# Memory optimization
+PRODUCT_PRODUCT_PROPERTIES += \
+    ro.sys.fw.bservice_enable=true \
+    ro.sys.fw.bservice_limit=5 \
+    ro.sys.fw.bservice_age=5000 \
+    ro.am.reschedule_service=true \
+    ro.sys.fw.bg_apps_limit=24
+
 # Property Overrides
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
     ro.allow.mock.location=1 \
