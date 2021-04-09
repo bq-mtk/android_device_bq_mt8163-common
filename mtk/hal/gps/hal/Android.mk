@@ -70,7 +70,7 @@ LOCAL_SRC_FILES := gps_mtk_aosp.c
 
 LOCAL_C_INCLUDES := \
 	$(LOCAL_PATH)/include \
-	device/bq/aquaris_m8/kernel-headers #FIXME
+	device/bq/mt8163-common/kernel-headers #FIXME
 
 LOCAL_MODULE := gps.mt8163
 LOCAL_MODULE_TAGS := optional
