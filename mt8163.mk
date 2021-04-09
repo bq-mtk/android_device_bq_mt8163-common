@@ -185,7 +185,6 @@ PRODUCT_PACKAGES += \
     audio.usb.default \
     libaudio-resampler \
     libtinyalsa \
-    libtinycompress \
     libtinyxml \
     tinymix
 
