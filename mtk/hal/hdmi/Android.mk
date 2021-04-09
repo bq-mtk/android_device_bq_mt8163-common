@@ -48,7 +48,7 @@ LOCAL_MODULE:= libhdmi
 LOCAL_MODULE_OWNER := mtk
 
 LOCAL_C_INCLUDES+= \
-    $(TOP)/vendor/bq/mt8163/proprietary/external/hdmi/include
+    $(TOP)/device/bq/mt8163-common/mtk/hal/hdmi/include
 
 LOCAL_SHARED_LIBRARIES := \
     libcutils \
@@ -82,7 +82,7 @@ LOCAL_MODULE:= libhdmiservice
 LOCAL_MODULE_OWNER := mtk
 
 LOCAL_C_INCLUDES:= \
-    $(TOP)/vendor/bq/mt8163/proprietary/external/hdmi/include
+    $(TOP)/device/bq/mt8163-common/mtk/hal/hdmi/include
 
 include $(BUILD_SHARED_LIBRARY)
 

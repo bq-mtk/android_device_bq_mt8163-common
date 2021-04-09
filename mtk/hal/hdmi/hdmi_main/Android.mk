@@ -14,7 +14,7 @@ LOCAL_SHARED_LIBRARIES := \
     libhdmiservice
 
 LOCAL_C_INCLUDES += \
-    $(TOP)/vendor/bq/mt8163/proprietary/external/hdmi/include
+    $(TOP)/device/bq/mt8163-common/mtk/hal/hdmi/include
 
 LOCAL_MODULE := hdmi
 LOCAL_MODULE_OWNER := mtk
