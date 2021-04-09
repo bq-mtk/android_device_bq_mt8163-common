@@ -66,6 +66,9 @@ BOARD_USES_MTK_AUDIO := true
 BOARD_CHARGER_ENABLE_SUSPEND := true
 BACKLIGHT_PATH := /sys/class/leds/lcd-backlight/brightness
 
+# DT2W
+TARGET_TAP_TO_WAKE_NODE := "/proc/gesture_open"
+
 # Bluetooth
 MTK_BT_SUPPORT := yes
 BOARD_HAVE_BLUETOOTH := true
