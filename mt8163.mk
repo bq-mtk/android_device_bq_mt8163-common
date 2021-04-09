@@ -28,6 +28,10 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     debug_tool
 
+# Remove Unused/Useless packages
+PRODUCT_PACKAGES += \
+    RemovePackages
+
 # Shim symbols
 PRODUCT_PACKAGES += \
     libshim_bionic \
