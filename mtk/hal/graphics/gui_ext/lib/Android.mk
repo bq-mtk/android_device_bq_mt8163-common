@@ -17,9 +17,9 @@ LOCAL_SRC_FILES := \
 
 LOCAL_C_INCLUDES:= \
     $(TOP)/frameworks/base/include/ \
-    $(TOP)/$(DEVICE_PATH)/mtk/graphics/gui_ext/inc \
-    $(TOP)/$(DEVICE_PATH)/mtk/graphics/ui_ext/inc \
-    $(TOP)/$(DEVICE_PATH)/mtk/graphics/gralloc_extra/include
+    $(TOP)/$(COMMON_PATH)/mtk/hal/graphics/gui_ext/inc \
+    $(TOP)/$(COMMON_PATH)/mtk/hal/graphics/ui_ext/inc \
+    $(TOP)/$(COMMON_PATH)/mtk/hal/graphics/gralloc_extra/include
 
 LOCAL_SHARED_LIBRARIES := \
     libutils \
