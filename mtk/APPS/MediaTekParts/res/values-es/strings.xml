@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Application name -->
+    <string name="app_name">MediaTek Parts</string>
+
+    <!-- Preference groups -->
+    <string name="gestures_settings_title">Gestos</string>
+    <string name="gps_settings_title">GPS</string>
+    <string name="hdmi_settings_title">HDMI</string>
+
+    <!-- Gestures -->
+    <string name="pref_dt2w_title">D2TW (Double Tap To Wake)</string>
+    <string name="pref_dt2w_description">Activa/Desactiva el \"Doble Toque Para Encender La Pantalla\" (DT2W)</string>
+
+    <!-- GPS/AGPS -->
+    <string name="pref_gps_title">YGPS</string>
+    <string name="pref_gps_description">Oculta la aplicación YGPS, que se usa para probar el GPS/AGPS.</string>
+
+    <!-- Menu -->
+    <string name="action_reboot_title">Reiniciar</string>
+    <string name="action_reboot_description">¿Quieres reiniciar ahora mismo?</string>
+
+    <!-- HDMI -->
+    <string name="pref_hdmi_title">HDMI</string>
+    <string name="pref_hdmi_description">Activa/Desactiva el HDMI.</string>
+
+    <!-- Dialog options -->
+    <string name="alert_yes">Si</string>
+    <string name="alert_no">No</string>
+</resources>

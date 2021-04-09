@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    android:key="preferences">
+
+    <!-- Gestures -->
+    <PreferenceCategory
+            android:key="gestures_settings"
+            android:title="@string/gestures_settings_title">
+        <SwitchPreference
+            android:key="@string/pref_dt2w_key"
+            android:summary="@string/pref_dt2w_description"
+            android:title="@string/pref_dt2w_title" />
+    </PreferenceCategory>
+
+    <!-- GPS -->
+    <PreferenceCategory
+            android:key="gps_settings"
+            android:title="@string/gps_settings_title">
+        <SwitchPreference
+            android:key="@string/pref_gps_key"
+            android:summary="@string/pref_gps_description"
+            android:title="@string/pref_gps_title" />
+    </PreferenceCategory>
+
+    <!-- HDMI -->
+    <PreferenceCategory
+            android:key="hdmi_settings"
+            android:title="@string/hdmi_settings_title">
+        <SwitchPreference
+            android:key="@string/pref_hdmi_key"
+            android:summary="@string/pref_hdmi_description"
+            android:title="@string/pref_hdmi_title" />
+    </PreferenceCategory>
+
+</PreferenceScreen>

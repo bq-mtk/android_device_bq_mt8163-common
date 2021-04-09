@@ -32,6 +32,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     RemovePackages
 
+# MediaTekParts
+PRODUCT_PACKAGES += \
+    MediaTekParts
+
 # Shim symbols
 PRODUCT_PACKAGES += \
     libshim_bionic \
