@@ -66,8 +66,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.force.gps.mode=gnss
 
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/gps/agps_profiles_conf2.xml:system/vendor/etc/agps_profiles_conf2.xml \
-    $(LOCAL_PATH)/configs/gps/gps.conf:system/vendor/etc/gps.conf
+    $(COMMON_PATH)/configs/gps/agps_profiles_conf2.xml:system/vendor/etc/agps_profiles_conf2.xml \
+    $(COMMON_PATH)/configs/gps/gps.conf:system/vendor/etc/gps.conf
 
 # MNLD
 ifeq ($(TARGET_PROVIDES_MNLD_HAL),false) 
@@ -260,9 +260,9 @@ PRODUCT_COPY_FILES += \
 
 # Thermal
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/thermal/thermal.conf:$(TARGET_COPY_OUT_SYSTEM)/etc/.tp/thermal.conf \
-    $(LOCAL_PATH)/configs/thermal/thermal.off.conf:$(TARGET_COPY_OUT_SYSTEM)/etc/.tp/thermal.off.conf \
-    $(LOCAL_PATH)/configs/thermal/.ht120.mtc:$(TARGET_COPY_OUT_SYSTEM)/etc/.tp/.ht120.mtc
+    $(COMMON_PATH)/configs/thermal/thermal.conf:$(TARGET_COPY_OUT_SYSTEM)/etc/.tp/thermal.conf \
+    $(COMMON_PATH)/configs/thermal/thermal.off.conf:$(TARGET_COPY_OUT_SYSTEM)/etc/.tp/thermal.off.conf \
+    $(COMMON_PATH)/configs/thermal/.ht120.mtc:$(TARGET_COPY_OUT_SYSTEM)/etc/.tp/.ht120.mtc
 
 # Vulkan
 PRODUCT_COPY_FILES += \
