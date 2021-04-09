@@ -86,8 +86,7 @@ PRODUCT_PACKAGES += \
     wpa_supplicant \
     wpa_cli \
     hostapd \
-    hostapd_cli \
-    libwpa_client
+    hostapd_cli
 
 # HIDL
 PRODUCT_PACKAGES += \
