@@ -80,9 +80,6 @@ bin/boot_logo_updater
 bin/autobt
 bin/audiocmdservice_atci
 bin/kisd
-etc/.tp/thermal.conf
-etc/.tp/.ht120.mtc
-etc/.tp/thermal.off.conf
 etc/audio_policy.conf
 etc/custom.conf
 etc/clatd.conf

@@ -253,6 +253,12 @@ PRODUCT_COPY_FILES += \
     $(COMMON_PATH)/configs/RIL/ecc_list.xml:system/etc/ecc_list.xml \
     $(COMMON_PATH)/configs/RIL/spn-conf.xml:system/etc/spn-conf.xml
 
+# Thermal
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/thermal/thermal.conf:$(TARGET_COPY_OUT_SYSTEM)/etc/.tp/thermal.conf \
+    $(LOCAL_PATH)/configs/thermal/thermal.off.conf:$(TARGET_COPY_OUT_SYSTEM)/etc/.tp/thermal.off.conf \
+    $(LOCAL_PATH)/configs/thermal/.ht120.mtc:$(TARGET_COPY_OUT_SYSTEM)/etc/.tp/.ht120.mtc
+
 # Vulkan
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.vulkan.level-0.xml:system/vendor/etc/permissions/android.hardware.vulkan.level.xml \
