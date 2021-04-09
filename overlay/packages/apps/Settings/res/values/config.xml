@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-     Copyright (C) 2016 The CyanogenMod Project
+     Copyright (C) 2020 The CyanogenMod Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -19,6 +19,8 @@
     <!-- Does the device allow updating the recovery. -->
     <bool name="config_enableRecoveryUpdater">false</bool>
     <bool name="config_gesture_settings_enabled">true</bool>
+    <!-- Whether to add AGPS parameter settings --> 
+    <bool name="config_agps_enabled">true</bool>
 
 </resources>
  
