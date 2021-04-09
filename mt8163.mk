@@ -177,10 +177,10 @@ PRODUCT_PACKAGES += \
     tinymix
 
 PRODUCT_COPY_FILES += \
-    $(COMMON_PATH)/configs/audio_effects.conf:system/etc/audio_effects.conf \
-    $(COMMON_PATH)/configs/audio_device.xml:system/etc/audio_device.xml \
-    $(COMMON_PATH)/configs/audio_em.xml:system/etc/audio_em.xml \
-    $(COMMON_PATH)/configs/AudioParamOptions.xml:system/etc/audio_param/AudioParamOptions.xml \
+    $(COMMON_PATH)/configs/audio/audio_effects.conf:system/etc/audio_effects.conf \
+    $(COMMON_PATH)/configs/audio/audio_device.xml:system/etc/audio_device.xml \
+    $(COMMON_PATH)/configs/audio/audio_em.xml:system/etc/audio_em.xml \
+    $(COMMON_PATH)/configs/audio/AudioParamOptions.xml:system/etc/audio_param/AudioParamOptions.xml \
     $(COMMON_PATH)/configs/init/audioserver.rc:system/etc/init/audioserver.rc
 
 # XML Parser
@@ -217,11 +217,11 @@ PRODUCT_COPY_FILES += \
     frameworks/av/media/libstagefright/data/media_codecs_google_audio.xml:system/etc/media_codecs_google_audio.xml \
     frameworks/av/media/libstagefright/data/media_codecs_google_telephony.xml:system/etc/media_codecs_google_telephony.xml \
     frameworks/av/media/libstagefright/data/media_codecs_google_video_le.xml:system/etc/media_codecs_google_video_le.xml \
-    $(COMMON_PATH)/configs/media_profiles.xml:system/etc/media_profiles.xml \
-    $(COMMON_PATH)/configs/media_codecs.xml:system/etc/media_codecs.xml \
-    $(COMMON_PATH)/configs/media_codecs_performance.xml:system/etc/media_codecs_performance.xml \
-    $(COMMON_PATH)/configs/media_codecs_mediatek_video.xml:system/etc/media_codecs_mediatek_video.xml \
-    $(COMMON_PATH)/configs/media_codecs_mediatek_audio.xml:system/etc/media_codecs_mediatek_audio.xml
+    $(COMMON_PATH)/configs/media/media_profiles.xml:system/etc/media_profiles.xml \
+    $(COMMON_PATH)/configs/media/media_codecs.xml:system/etc/media_codecs.xml \
+    $(COMMON_PATH)/configs/media/media_codecs_performance.xml:system/etc/media_codecs_performance.xml \
+    $(COMMON_PATH)/configs/media/media_codecs_mediatek_video.xml:system/etc/media_codecs_mediatek_video.xml \
+    $(COMMON_PATH)/configs/media/media_codecs_mediatek_audio.xml:system/etc/media_codecs_mediatek_audio.xml
 
 # Wifi
 PRODUCT_PACKAGES += \
@@ -231,8 +231,8 @@ PRODUCT_COPY_FILES += \
     $(COMMON_PATH)/configs/wifi/wpa_supplicant.conf:system/etc/wifi/wpa_supplicant.conf \
     $(COMMON_PATH)/configs/wifi/wpa_supplicant_overlay.conf:system/etc/wifi/wpa_supplicant_overlay.conf \
     $(COMMON_PATH)/configs/wifi/p2p_supplicant_overlay.conf:system/etc/wifi/p2p_supplicant_overlay.conf \
-    $(COMMON_PATH)/configs/ecc_list.xml:system/etc/ecc_list.xml \
-    $(COMMON_PATH)/configs/spn-conf.xml:system/etc/spn-conf.xml
+    $(COMMON_PATH)/configs/RIL/ecc_list.xml:system/etc/ecc_list.xml \
+    $(COMMON_PATH)/configs/RIL/spn-conf.xml:system/etc/spn-conf.xml
 
 # Vulkan
 PRODUCT_COPY_FILES += \
