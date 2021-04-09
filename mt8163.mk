@@ -183,6 +183,7 @@ PRODUCT_PACKAGES += \
     audio.r_submix.default \
     audio.r_submix.mt8163 \
     audio.usb.default \
+    audio_policy.stub \
     libaudio-resampler \
     libtinyalsa \
     libtinyxml \
