@@ -125,6 +125,9 @@ PRODUCT_PACKAGES += \
     libbt-vendor \
     libbluetooth_mtk
 
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.boot.btmacaddr=00:00:00:00:00:00
+
 # DRM
 PRODUCT_PACKAGES += \
     android.hardware.drm@1.0-impl \
