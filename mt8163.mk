@@ -134,6 +134,7 @@ PRODUCT_PACKAGES += \
     android.hardware.drm@1.0-service.widevine \
     android.hardware.drm@1.0-service \
     libdrm \
+    libdrmclearkeyplugin \
     libmockdrmcryptoplugin
 
 # FM Radio
