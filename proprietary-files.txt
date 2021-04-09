@@ -135,7 +135,14 @@ lib/libMtkOmxGsmDec.so
 lib/libMtkOmxMp3Dec.so
 lib/libMtkOmxRawDec.so
 lib/libMtkOmxVorbisEnc.so
-lib/libMtkOmxVenc.so
+lib/libMtkOmxVdecEx.so|478d59a82c9108aa9f1485c227522cd48d28a2da
+lib/libMtkOmxCore.so|f6dc426bb7be19dd1b62e355825bec0dd3fcf89d
+lib/libMtkOmxVenc.so|5f1f4b7cf3ca195d61dabf0c9a7e290778aeb62f 
+lib/drm/libdrmmtkplugin.so|054a533ec5f3ad622fd9e71d7f66c13bcbcf1c6c 
+lib/drm/libdrmctaplugin.so|0a41a4d79bef9730f6eb028d8c64dc92da3ed209
+lib/libdlbdapstorage.so|b86634a999d701b0abfde166c8b27705c247ec10
+lib/libdlbmemoryservice.so|5a634c9fc2c12878a58163c639efccd665a6c338
+lib/libstagefright_soft_ddpdec.so|a6029fbcd101af5083cf7e784ff7d81878a3ff96
 lib/libbluetooth_hw_test.so
 lib/libril_dongle.so
 lib/libcam.camadapter.so
