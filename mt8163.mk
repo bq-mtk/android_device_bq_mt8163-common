@@ -65,6 +65,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.force.gps.mode=gnss
 
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/gps/agps_profiles_conf2.xml:system/vendor/etc/agps_profiles_conf2.xml \
+    $(LOCAL_PATH)/configs/gps/gps.conf:system/vendor/etc/gps.conf
+
 # MNLD
 ifeq ($(TARGET_PROVIDES_MNLD_HAL),false) 
 PRODUCT_PACKAGES += \
