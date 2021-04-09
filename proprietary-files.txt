@@ -69,6 +69,7 @@ bin/tertestclient
 bin/superumount
 bin/slpd
 bin/rild_dongle
+bin/rpmb_svc
 bin/dongled
 bin/perf_native_test
 bin/ntfs-3g
@@ -140,6 +141,10 @@ lib/drm/libdrmctaplugin.so|0a41a4d79bef9730f6eb028d8c64dc92da3ed209
 lib/libdlbdapstorage.so|b86634a999d701b0abfde166c8b27705c247ec10
 lib/libdlbmemoryservice.so|5a634c9fc2c12878a58163c639efccd665a6c338
 lib/libstagefright_soft_ddpdec.so|a6029fbcd101af5083cf7e784ff7d81878a3ff96
+lib/libstagefright_avc_common.so
+lib/libstagefright_hdcprx.so
+lib/libstagefright_hdcptx.so
+lib/libstagefright_yuv.so
 lib/libbluetooth_hw_test.so
 lib/libril_dongle.so
 lib/libcam.camadapter.so
@@ -312,6 +317,10 @@ lib64/libem_modem_jni.so
 lib64/libcam.utils.sensorlistener.so
 lib64/libvcodecdrv.so
 lib64/libstagefrighthw.so
+lib64/libstagefright_avc_common.so
+lib64/libstagefright_hdcprx.so
+lib64/libstagefright_hdcptx.so
+lib64/libstagefright_yuv.so
 lib64/libui_ext.so
 lib64/libfeatureio.so
 lib64/libaudiocomponentengine.so
@@ -438,3 +447,5 @@ vendor/lib64/libaptX_encoder.so|a407a92a6eb467886c3970629ebcab4db95b7600
 vendor/lib64/libaptXHD_encoder.so|76eb03998f9b4f98029a4408076685892726e45as
 vendor/firmware/DF_VERSION
 vendor/firmware/bq27520.dffs
+xbin/BGW
+xbin/mnld
