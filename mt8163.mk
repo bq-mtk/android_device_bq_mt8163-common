@@ -106,7 +106,6 @@ PRODUCT_PACKAGES += \
     libgralloc_extra \
     libgui_ext \
     libui_ext \
-    libperfservicenative \
     libion
 
 # Memtrack
