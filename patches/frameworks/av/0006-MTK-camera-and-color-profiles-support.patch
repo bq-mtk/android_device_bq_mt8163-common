@@ -1941,7 +1941,7 @@ index 0422ad0..9655784 100644
  
      sanitize: {
 @@ -175,6 +178,10 @@ cc_library_shared {
-         "mtkaudio_stubs.cpp",
+         "StringArray.cpp",
      ],
  
 +    include_dirs: [

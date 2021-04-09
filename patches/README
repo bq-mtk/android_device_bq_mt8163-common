@@ -1,5 +1,4 @@
 This is patch directory
-Originally took from Xiaomi Hermes Repo (ibilux)
 
 cd WORKING_DIR
 sh device/bq/mt8163-common/patches/install.sh
