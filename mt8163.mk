@@ -198,6 +198,7 @@ PRODUCT_COPY_FILES += \
     $(COMMON_PATH)/configs/audio/audio_device.xml:system/etc/audio_device.xml \
     $(COMMON_PATH)/configs/audio/audio_em.xml:system/etc/audio_em.xml \
     $(COMMON_PATH)/configs/audio/AudioParamOptions.xml:system/etc/audio_param/AudioParamOptions.xml \
+    $(COMMON_PATH)/configs/audio/audio_policy_configuration.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/audio_policy_configuration.xml \
     $(COMMON_PATH)/configs/init/audioserver.rc:system/etc/init/audioserver.rc
 
 # XML Parser
