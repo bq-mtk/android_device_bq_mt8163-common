@@ -110,5 +110,5 @@ LOCAL_REQUIRED_MODULES := libmnl.so libgeofence.so
 LOCAL_MODULE_TAGS := optional
 
 include $(BUILD_EXECUTABLE)
-include vendor/bq/mt8163/proprietary/hardware/gps/mtk_mnld/mnl/libs/Android.mk
+include device/bq/mt8163-common/mtk/hal/gps/mtk_mnld/mnl/libs/Android.mk
 endif
