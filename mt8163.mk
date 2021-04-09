@@ -309,6 +309,7 @@ PRODUCT_PACKAGES += \
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
     ro.allow.mock.location=1 \
     ro.zygote=zygote64_32 \
+    camera.disable_zsl_mode=1 \
     ro.dalvik.vm.native.bridge=0 \
     persist.sys.usb.config=mtp,adb \
     persist.debug.xlog.enable=0
