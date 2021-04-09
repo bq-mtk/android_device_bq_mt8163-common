@@ -312,7 +312,9 @@ PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
     camera.disable_zsl_mode=1 \
     ro.dalvik.vm.native.bridge=0 \
     persist.sys.usb.config=mtp,adb \
-    persist.debug.xlog.enable=0
+    persist.debug.xlog.enable=0 \
+    ro.adb.secure=0 \
+    ro.secure=0
 
 # Force Lockscreen Rotation
 PRODUCT_PRODUCT_PROPERTIES += \
