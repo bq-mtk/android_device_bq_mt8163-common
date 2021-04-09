@@ -312,3 +312,8 @@ PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
     ro.dalvik.vm.native.bridge=0 \
     persist.sys.usb.config=mtp,adb \
     persist.debug.xlog.enable=0
+
+# Force Lockscreen Rotation
+PRODUCT_PRODUCT_PROPERTIES += \
+    log.tag.launcher_force_rotate=VERBOSE \
+    lockscreen.rot_override=true
