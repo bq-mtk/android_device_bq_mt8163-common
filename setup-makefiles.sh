@@ -37,7 +37,7 @@ fi
 setup_vendor "$DEVICE_COMMON" "$VENDOR" "$LINEAGE_ROOT" true
 
 # Copyright headers and guards
-write_headers "aquaris_m8 freezerfhd"
+write_headers "zeno freezerfhd"
 
 # The standard common blobs
 write_makefiles "$MY_DIR"/proprietary-files.txt
