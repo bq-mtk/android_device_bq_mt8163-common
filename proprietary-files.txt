@@ -117,7 +117,6 @@ lib/hw/gralloc.default.so
 lib/hw/hwcomposer.mt8163.so
 lib/hw/gatekeeper.mt8163.so
 lib/hw/audio.primary.mt8163.so
-lib/hw/vibrator.default.so
 lib/hw/gralloc.mt8163.so
 lib/hw/sensors.mt8163.so
 lib/hw/local_time.default.so
@@ -295,7 +294,6 @@ lib64/hw/gralloc.default.so
 lib64/hw/hwcomposer.mt8163.so
 lib64/hw/gatekeeper.mt8163.so
 lib64/hw/audio.primary.mt8163.so
-lib64/hw/vibrator.default.so
 lib64/hw/gralloc.mt8163.so
 lib64/hw/sensors.mt8163.so
 lib64/hw/local_time.default.so
