@@ -274,7 +274,8 @@ PRODUCT_PACKAGES += \
     libshim_wvm \
     libshim_drm \
     libshim_media \
-    libshim_mute_log
+    libshim_mute_log \
+	libshim_gui
 
 # Seccomp policy
 PRODUCT_COPY_FILES += \

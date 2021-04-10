@@ -134,7 +134,9 @@ TARGET_LD_SHIM_LIBS := \
     /system/lib/libstagefright_soft_ddpdec.so|libshim_omx.so \
     /system/lib/libMtkOmxVdecEx.so|libshim_omx.so \
     /system/lib/libMtkOmxVenc.so|libshim_omx.so \
-    /system/bin/nandread|libshim_bionic.so
+    /system/bin/nandread|libshim_bionic.so \
+    /system/lib/libgui_ext.so|libshim_gui.so \
+    /system/lib64/libgui_ext.so|libshim_gui.so
 
 # Gatekeeper
 BOARD_USE_SOFT_GATEKEEPER := true

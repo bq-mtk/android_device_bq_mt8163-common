@@ -104,6 +104,18 @@ LOCAL_MODULE := libshim_xlog
 LOCAL_PROPRIETARY_MODULE := true
 include $(BUILD_SHARED_LIBRARY)
 
+# GUI Shim
+include $(CLEAR_VARS)
+
+LOCAL_SRC_FILES := gui/gui_shim.cpp
+
+LOCAL_SHARED_LIBRARIES := liblog
+
+LOCAL_MODULE := libshim_gui
+
+LOCAL_PROPRIETARY_MODULE := true
+include $(BUILD_SHARED_LIBRARY)
+
 # DRM Shim
 include $(CLEAR_VARS)
 
