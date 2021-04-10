@@ -565,7 +565,7 @@ on post-fs-data
 
     # FM Radio device node
     mknod /dev/fm     c 193 0;
-    chmod 0660 /dev/fm
+    chmod 0666 /dev/fm
     chown media media /dev/fm
 
     # device apc settings
