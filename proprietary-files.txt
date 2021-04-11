@@ -55,7 +55,6 @@ bin/dmlog
 bin/epdg_wod
 bin/gsensorcalid
 bin/init.gprs-pppd
-bin/kpoc_charger
 bin/magd
 bin/matv
 bin/ppl_agent
@@ -204,7 +203,6 @@ lib/libem_usb_jni.so
 lib/libem_wifi_jni.so
 lib/libccci_util.so
 lib/libnvram_platform.so
-lib/libshowlogo.so
 lib/libvp8enc_sa.ca7.so
 lib/libmhalImageCodec.so
 lib/libaudio-resampler.so
