@@ -218,7 +218,8 @@ PRODUCT_PACKAGES += \
 # Memtrack
 PRODUCT_PACKAGES += \
     android.hardware.memtrack@1.0-impl \
-    android.hardware.memtrack@1.0-service
+    android.hardware.memtrack@1.0-service \
+	memtrack.mt8163
 
 # Power
 PRODUCT_PACKAGES += \
