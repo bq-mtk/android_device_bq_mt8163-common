@@ -69,7 +69,7 @@ int graphic_memtrack_get_memory(pid_t pid, enum memtrack_type type,
 
                 strcpy(filename, file->d_name);
 
-                snprintf(tmp, sizeof(tmp), filename);
+                snprintf(tmp, sizeof(tmp), "%s", filename);
                 strtok(tmp, "-");
                 /* if (strcmp(tmp, "disp_decouple") ==0 || strcmp(tmp, "display") == 0) */
                 if (atoi(tmp) == 0) /*disp_decouple, or display from kernel*/
