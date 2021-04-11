@@ -235,7 +235,6 @@ lib/libnvramagentclient.so
 lib/libbluetooth_mtk_pure.so
 lib/libmrdump.so
 lib/libimageio_plat_drv_FrmB.so
-lib/libfmcust.so
 lib/liba3m.so
 lib/libacdk.so
 lib/libimageio_FrmB.so
@@ -349,7 +348,6 @@ lib64/libbluetooth_mtk_pure.so
 lib64/libterservice.so
 lib64/libmrdump.so
 lib64/libimageio_plat_drv_FrmB.so
-lib64/libfmcust.so
 lib64/liba3m.so
 lib64/libacdk.so
 lib64/libimageio_FrmB.so
