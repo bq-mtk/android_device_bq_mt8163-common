@@ -1,3 +1,89 @@
+# AEE
+bin/aee
+bin/aee_archive
+bin/aee_core_forwarder
+bin/aee_dumpstate
+lib/libaed.so
+lib64/libaed.so
+
+# aptX
+vendor/lib64/libaptX_encoder.so|a407a92a6eb467886c3970629ebcab4db95b7600
+vendor/lib64/libaptXHD_encoder.so|76eb03998f9b4f98029a4408076685892726e45as
+
+# Audio
+bin/audiocmdservice_atci
+etc/audio_policy.conf
+lib/hw/audio.primary.mt8163.so
+lib/libaudiodcrflt.so
+lib/libaudiocomponentengine.so
+lib/libaudiomtkdcremoval.so
+lib/libblisrc.so
+lib/libaudio-resampler.so
+lib/libaudiocustparam.so
+lib/libblisrc32.so
+lib/libaudiocompensationfilter.so
+lib/libbessound_hd_mtk.so
+lib/libbessurround_mtk.so
+lib/lib3a.so
+lib/libmtk_drvb.so
+lib/libaudiosetting.so
+lib/liba3m.so
+lib/libtinycompress.so
+lib/libMTKAudioTimeStretch.so
+lib/soundfx/libaudiopreprocessing.so
+lib64/hw/audio_policy.stub.so
+lib64/hw/audio.primary.mt8163.so
+lib64/libaudiodcrflt.so
+lib64/libaudiocomponentengine.so
+lib64/libblisrc.so
+lib64/libaudio-resampler.so
+lib64/libaudiocustparam.so
+lib64/libblisrc32.so
+lib64/libaudiocompensationfilter.so
+lib64/libbessound_hd_mtk.so
+lib64/lib3a.so
+lib64/libmtk_drvb.so
+lib64/libaudiosetting.so
+lib64/libbluetooth_mtk_pure.so
+lib64/liba3m.so
+lib64/libtinycompress.so
+
+# Bluetooth
+bin/autobt
+lib/libbluetooth_hw_test.so
+lib/libbluetooth_relayer.so
+lib/libbtcusttable.so
+lib/libem_bt_jni.so
+lib/libbluetoothem_mtk.so
+lib/libbluetooth_mtk_pure.so
+lib64/libbluetooth_hw_test.so
+lib64/libbluetooth_relayer.so
+lib64/libbtcusttable.so
+lib64/libem_bt_jni.so
+lib64/libbluetoothem_mtk.so
+
+# Camera
+lib/libm4u.so
+lib/libbwc.so
+lib/libimageio.so
+lib/libmmprofile.so
+lib/libimageio_plat_drv.so
+lib/libmtkjpeg.so
+lib/libmtk_mmutils.so
+lib/libmmsdkservice.so
+lib/libimageio_plat_drv_FrmB.so
+lib/libimageio_FrmB.so
+lib64/libm4u.so
+lib64/libimageio.so
+lib64/libmmprofile.so
+lib64/libimageio_plat_drv.so
+lib64/libmtkjpeg.so
+lib64/libmtk_mmutils.so
+lib64/libmmsdkservice.so
+lib64/libbwc.so
+lib64/libimageio_plat_drv_FrmB.so
+lib64/libimageio_FrmB.so
+
 # Connectivity
 bin/mtkrildmd2
 bin/muxreport
@@ -43,43 +129,112 @@ lib64/libwifitest.so
 lib64/libzteevdo-ril.so
 lib64/libril_dongle.so
 
-# Audio
-bin/audiocmdservice_atci
-etc/audio_policy.conf
-lib/hw/audio.primary.mt8163.so
-lib/libaudiodcrflt.so
-lib/libaudiocomponentengine.so
-lib/libaudiomtkdcremoval.so
-lib/libblisrc.so
-lib/libaudio-resampler.so
-lib/libaudiocustparam.so
-lib/libblisrc32.so
-lib/libaudiocompensationfilter.so
-lib/libbessound_hd_mtk.so
-lib/libbessurround_mtk.so
-lib/lib3a.so
-lib/libmtk_drvb.so
-lib/libaudiosetting.so
-lib/liba3m.so
-lib/libtinycompress.so
-lib/libMTKAudioTimeStretch.so
-lib/soundfx/libaudiopreprocessing.so
-lib64/hw/audio_policy.stub.so
-lib64/hw/audio.primary.mt8163.so
-lib64/libaudiodcrflt.so
-lib64/libaudiocomponentengine.so
-lib64/libblisrc.so
-lib64/libaudio-resampler.so
-lib64/libaudiocustparam.so
-lib64/libblisrc32.so
-lib64/libaudiocompensationfilter.so
-lib64/libbessound_hd_mtk.so
-lib64/lib3a.so
-lib64/libmtk_drvb.so
-lib64/libaudiosetting.so
-lib64/libbluetooth_mtk_pure.so
-lib64/liba3m.so
-lib64/libtinycompress.so
+# DHCPCD
+bin/hdcpkey
+bin/dhcpcd
+bin/dhcp6s
+bin/dhcp6ctl
+bin/dhcp6c
+etc/wide-dhcpv6/dhcp6s.conf
+etc/wide-dhcpv6/dhcp6c.conf
+etc/wide-dhcpv6/dhcp6cctlkey
+etc/wide-dhcpv6/dhcp6cDNS.conf
+etc/wide-dhcpv6/dhcp6c.script
+
+# DM
+bin/dm_agent_binder
+bin/dmlog
+
+# DRM (crypto)
+bin/rpmb_svc
+bin/kisd
+lib/liburee_meta_drmkeyinstall_v2.so
+lib/drm/libdrmmtkplugin.so|054a533ec5f3ad622fd9e71d7f66c13bcbcf1c6c 
+lib/drm/libdrmctaplugin.so|0a41a4d79bef9730f6eb028d8c64dc92da3ed209
+lib/libdlbdapstorage.so|b86634a999d701b0abfde166c8b27705c247ec10
+lib/libdlbmemoryservice.so|5a634c9fc2c12878a58163c639efccd665a6c338
+lib/libdrmmtkwhitelist.so
+lib64/liburee_meta_drmkeyinstall_v2.so
+lib64/libdrmmtkutil.so
+lib64/libdrmmtkwhitelist.so
+vendor/lib/libWVStreamControlAPI_L3.so|61673304827483d44b735a3dd08f0783d10ce92d
+vendor/lib/libwvm.so
+vendor/lib/libdrmwvmplugin.so
+vendor/lib/libwvdrm_L3.so|7e77482481197997294a834bfbc817a01b6075cd
+vendor/lib/mediadrm/libwvdrmengine.so|66ba66d047044f92eb0eada1faf6a5799ded90ab
+
+# Firmware Data
+vendor/firmware/DF_VERSION
+vendor/firmware/bq27520.dffs
+
+# FM Radio
+bin/atcid
+etc/firmware/mt6627/mt6627_fm_v1_coeff.bin
+etc/firmware/mt6627/mt6627_fm_v1_patch.bin
+etc/firmware/mt6627/mt6627_fm_v2_coeff.bin
+etc/firmware/mt6627/mt6627_fm_v2_patch.bin
+etc/firmware/mt6627/mt6627_fm_v3_coeff.bin
+etc/firmware/mt6627/mt6627_fm_v3_patch.bin
+etc/firmware/mt6627/mt6627_fm_v4_coeff.bin
+etc/firmware/mt6627/mt6627_fm_v4_patch.bin
+etc/firmware/mt6627/mt6627_fm_v5_coeff.bin
+etc/firmware/mt6627/mt6627_fm_v5_patch.bin
+etc/fmr/mt6627_fm_cust.cfg
+
+# Gatekeeper
+lib/hw/gatekeeper.mt8163.so
+lib64/hw/gatekeeper.mt8163.so
+
+# GPS
+lib/libmnl.so
+xbin/mnld
+xbin/BGW
+
+# Graphics
+bin/guiext-server
+bin/pq
+bin/program_binary_service
+bin/perf_native_test
+etc/perfservtouchfilter.txt
+etc/perfservapplist.txt
+lib/hw/hwcomposer.mt8163.so
+lib/hw/gralloc.mt8163.so
+lib/egl/libGLES_mali.so
+-lib/libion_mtk.so
+lib/libperfservicenative.so
+-lib/libdpframework.so
+lib/libged.so
+lib/libperfservice.so
+lib/libgpu_aux.so
+lib/libpq_prot.so
+lib/libmrdump.so
+lib/libpq_cust.so
+lib/libjni_pq.so
+lib64/hw/hwcomposer.mt8163.so
+lib64/hw/gralloc.mt8163.so
+lib64/egl/libGLES_mali.so
+-lib64/libion_mtk.so
+lib64/libperfservicenative.so
+-lib64/libdpframework.so
+lib64/libged.so
+lib64/libpq_prot.so
+lib64/libjni_pq.so
+lib64/libperfservice.so
+lib64/libgpu_aux.so
+lib64/libmrdump.so
+lib64/libpq_cust.so
+
+# HDMI
+bin/dongled
+lib/libril_dongle.so
+
+# Keylayouts
+usr/keylayout/mtk-kpd.kl
+usr/keylayout/ACCDET.kl
+
+# MD32 firmware data
+etc/firmware/md32_d.bin
+etc/firmware/md32_p.bin
 
 # Misc
 bin/xlog
@@ -113,6 +268,29 @@ lib64/libmsbc_mtk.so
 lib64/libcvsd_mtk.so
 lib64/libmdfx.so
 lib64/libacdk.so
+
+# NVRAM
+bin/nvram_agent_binder
+bin/nvram_daemon
+lib/libfile_op.so
+lib/libcustom_prop.so
+lib/libcustom_nvram.so
+lib/libnvram_daemon_callback.so
+lib/libnvram_platform.so
+-lib/libnvram.so
+lib/libnvram_sec.so
+-lib/libnvramagentclient.so
+lib64/libfile_op.so
+lib64/libcustom_prop.so
+lib64/libcustom_nvram.so
+lib64/libnvram_daemon_callback.so
+-lib64/libnvram.so
+lib64/libnvram_sec.so
+lib64/libnvram_platform.so
+-lib64/libnvramagentclient.so
+
+# Offline Charging
+bin/boot_logo_updater
 
 # OMX
 bin/MtkCodecService
@@ -202,44 +380,8 @@ lib64/hw/sensors.mt8163.so
 lib64/libhwm.so
 lib64/libem_sensor_jni.so
 
-# Thermal
-bin/terservice
-bin/thermal_manager
-bin/tertestclient
-lib/libmtcloader.so
-lib64/libterservice.so
-
-# NVRAM
-bin/nvram_agent_binder
-bin/nvram_daemon
-lib/libfile_op.so
-lib/libcustom_prop.so
-lib/libcustom_nvram.so
-lib/libnvram_daemon_callback.so
-lib/libnvram_platform.so
--lib/libnvram.so
-lib/libnvram_sec.so
--lib/libnvramagentclient.so
-lib64/libfile_op.so
-lib64/libcustom_prop.so
-lib64/libcustom_nvram.so
-lib64/libnvram_daemon_callback.so
--lib64/libnvram.so
-lib64/libnvram_sec.so
-lib64/libnvram_platform.so
--lib64/libnvramagentclient.so
-
-# DHCPCD
-bin/hdcpkey
-bin/dhcpcd
-bin/dhcp6s
-bin/dhcp6ctl
-bin/dhcp6c
-etc/wide-dhcpv6/dhcp6s.conf
-etc/wide-dhcpv6/dhcp6c.conf
-etc/wide-dhcpv6/dhcp6cctlkey
-etc/wide-dhcpv6/dhcp6cDNS.conf
-etc/wide-dhcpv6/dhcp6c.script
+# SPM
+bin/spm_loader
 
 # Storage
 bin/stp_dump3
@@ -249,155 +391,13 @@ bin/superumount
 bin/ntfs-3g
 bin/nandread
 
-# SPM
-bin/spm_loader
-
-# Graphics
-bin/guiext-server
-bin/pq
-bin/program_binary_service
-bin/perf_native_test
-etc/perfservtouchfilter.txt
-etc/perfservapplist.txt
-lib/hw/hwcomposer.mt8163.so
-lib/hw/gralloc.mt8163.so
-lib/egl/libGLES_mali.so
--lib/libion_mtk.so
-lib/libperfservicenative.so
--lib/libdpframework.so
-lib/libged.so
-lib/libperfservice.so
-lib/libgpu_aux.so
-lib/libpq_prot.so
-lib/libmrdump.so
-lib/libpq_cust.so
-lib/libjni_pq.so
-lib64/hw/hwcomposer.mt8163.so
-lib64/hw/gralloc.mt8163.so
-lib64/egl/libGLES_mali.so
--lib64/libion_mtk.so
-lib64/libperfservicenative.so
--lib64/libdpframework.so
-lib64/libged.so
-lib64/libpq_prot.so
-lib64/libjni_pq.so
-lib64/libperfservice.so
-lib64/libgpu_aux.so
-lib64/libmrdump.so
-lib64/libpq_cust.so
-
-# AEE
-bin/aee
-bin/aee_archive
-bin/aee_core_forwarder
-bin/aee_dumpstate
-lib/libaed.so
-lib64/libaed.so
-
-# FM Radio
-bin/atcid
-etc/firmware/mt6627/mt6627_fm_v1_coeff.bin
-etc/firmware/mt6627/mt6627_fm_v1_patch.bin
-etc/firmware/mt6627/mt6627_fm_v2_coeff.bin
-etc/firmware/mt6627/mt6627_fm_v2_patch.bin
-etc/firmware/mt6627/mt6627_fm_v3_coeff.bin
-etc/firmware/mt6627/mt6627_fm_v3_patch.bin
-etc/firmware/mt6627/mt6627_fm_v4_coeff.bin
-etc/firmware/mt6627/mt6627_fm_v4_patch.bin
-etc/firmware/mt6627/mt6627_fm_v5_coeff.bin
-etc/firmware/mt6627/mt6627_fm_v5_patch.bin
-etc/fmr/mt6627_fm_cust.cfg
-
-# DM
-bin/dm_agent_binder
-bin/dmlog
-
-# DRM (crypto)
-bin/rpmb_svc
-bin/kisd
-lib/liburee_meta_drmkeyinstall_v2.so
-lib/drm/libdrmmtkplugin.so|054a533ec5f3ad622fd9e71d7f66c13bcbcf1c6c 
-lib/drm/libdrmctaplugin.so|0a41a4d79bef9730f6eb028d8c64dc92da3ed209
-lib/libdlbdapstorage.so|b86634a999d701b0abfde166c8b27705c247ec10
-lib/libdlbmemoryservice.so|5a634c9fc2c12878a58163c639efccd665a6c338
-lib/libdrmmtkwhitelist.so
-lib64/liburee_meta_drmkeyinstall_v2.so
-lib64/libdrmmtkutil.so
-lib64/libdrmmtkwhitelist.so
-vendor/lib/libWVStreamControlAPI_L3.so|61673304827483d44b735a3dd08f0783d10ce92d
-vendor/lib/libwvm.so
-vendor/lib/libdrmwvmplugin.so
-vendor/lib/libwvdrm_L3.so|7e77482481197997294a834bfbc817a01b6075cd
-vendor/lib/mediadrm/libwvdrmengine.so|66ba66d047044f92eb0eada1faf6a5799ded90ab
-
-# HDMI
-bin/dongled
-lib/libril_dongle.so
-
-# Offline Charging
-bin/boot_logo_updater
-
-# Bluetooth
-bin/autobt
-lib/libbluetooth_hw_test.so
-lib/libbluetooth_relayer.so
-lib/libbtcusttable.so
-lib/libem_bt_jni.so
-lib/libbluetoothem_mtk.so
-lib/libbluetooth_mtk_pure.so
-lib64/libbluetooth_hw_test.so
-lib64/libbluetooth_relayer.so
-lib64/libbtcusttable.so
-lib64/libem_bt_jni.so
-lib64/libbluetoothem_mtk.so
-
-# MD32 firmware data
-etc/firmware/md32_d.bin
-etc/firmware/md32_p.bin
-
-# Gatekeeper
-lib/hw/gatekeeper.mt8163.so
-lib64/hw/gatekeeper.mt8163.so
-
-# Camera
-lib/libm4u.so
-lib/libbwc.so
-lib/libimageio.so
-lib/libmmprofile.so
-lib/libimageio_plat_drv.so
-lib/libmtkjpeg.so
-lib/libmtk_mmutils.so
-lib/libmmsdkservice.so
-lib/libimageio_plat_drv_FrmB.so
-lib/libimageio_FrmB.so
-lib64/libm4u.so
-lib64/libimageio.so
-lib64/libmmprofile.so
-lib64/libimageio_plat_drv.so
-lib64/libmtkjpeg.so
-lib64/libmtk_mmutils.so
-lib64/libmmsdkservice.so
-lib64/libbwc.so
-lib64/libimageio_plat_drv_FrmB.so
-lib64/libimageio_FrmB.so
-
-# GPS
-lib/libmnl.so
-xbin/mnld
-xbin/BGW
+# Thermal
+bin/terservice
+bin/thermal_manager
+bin/tertestclient
+lib/libmtcloader.so
+lib64/libterservice.so
 
 # USB
 lib/libem_usb_jni.so
 lib64/libem_usb_jni.so
-
-# Keylayouts
-usr/keylayout/mtk-kpd.kl
-usr/keylayout/ACCDET.kl
-
-# aptX
-vendor/lib64/libaptX_encoder.so|a407a92a6eb467886c3970629ebcab4db95b7600
-vendor/lib64/libaptXHD_encoder.so|76eb03998f9b4f98029a4408076685892726e45as
-
-# Firmware Data
-vendor/firmware/DF_VERSION
-vendor/firmware/bq27520.dffs
