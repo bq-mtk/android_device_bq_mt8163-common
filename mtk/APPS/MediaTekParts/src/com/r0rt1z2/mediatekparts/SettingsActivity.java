@@ -1,5 +1,6 @@
 // Copyright (C) 2017  Daniel 'dady8889' Múčka
 // Copyright (C) 2020  Roger 'R0rt1z2' Ortiz
+// Copyright (C) 2020  Jose 'jmpfbmx'
 
 package com.r0rt1z2.mediatekparts;
 
@@ -26,7 +27,6 @@ import com.r0rt1z2.mediatekparts.Functions;
 public class SettingsActivity extends SettingsDrawerActivity {
 
     private static final String TAG = "MediaTekParts";
-    private static final String PROPERTY_YGPS_HANDLER = "persist.ygps.enable";
     private static final String PROPERTY_HDMI_HANDLER = "sys.service.hdmi.enable";
     private static final String STRING_NULL = "null";
     private static final int MENU_REBOOT = Menu.FIRST;
@@ -147,16 +147,6 @@ public class SettingsActivity extends SettingsDrawerActivity {
                 switchPref.setChecked(savedValue);
             } else { int hdmi_on = 0; }
             SystemPropertiesReflection.SetSystemString(PROPERTY_HDMI_HANDLER, "1");
-
-            /* Set up YGPS handler */
-            switchPref = (SwitchPreference)findPreference("pref_gps");
-            savedValue = preferenceManager.getBoolean("pref_gps", false);
-
-            if (savedValue) {
-                switchPref.setChecked(true);
-            } else {
-                switchPref.setChecked(savedValue);
-            }
             
         }
 
@@ -176,18 +166,6 @@ public class SettingsActivity extends SettingsDrawerActivity {
                 case R.string.pref_hdmi_key: {
                     SystemPropertiesReflection.SetSystemString(PROPERTY_HDMI_HANDLER, newValue ? "1" : "0");
                     editor.putBoolean("pref_hdmi", newValue);
-                    break;
-                }
-                case R.string.pref_gps_key: {
-                    SystemPropertiesReflection.SetSystemString(PROPERTY_YGPS_HANDLER, newValue ? "1" : "0");
-                    if (newValue) {
-                        /* If toggle it's enabled, hide YGPS */
-                        Functions.HidePackage("com.mediatek.ygps");
-                    } else {
-                        /* If toggle it's not enabled, unhide YGPS */
-                        Functions.UnHidePackage("com.mediatek.ygps");
-                    }
-                    editor.putBoolean("pref_gps", newValue); /* Set the new value */
                     break;
                 }
             }

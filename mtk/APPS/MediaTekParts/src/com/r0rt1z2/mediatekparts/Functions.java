@@ -1,5 +1,6 @@
 // Copyright (C) 2017  Daniel 'dady8889' Múčka
 // Copyright (C) 2020  Roger 'R0rt1z2' Ortiz
+// Copyright (C) 2020  Jose 'jmpfbmx'
 
 package com.r0rt1z2.mediatekparts;
 

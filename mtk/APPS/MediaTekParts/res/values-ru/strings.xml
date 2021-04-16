@@ -5,16 +5,11 @@
 
     <!-- Preference groups -->
     <string name="gestures_settings_title">жесты</string>
-    <string name="gps_settings_title">GPS</string>
     <string name="hdmi_settings_title">HDMI</string>
 
     <!-- Gestures -->
     <string name="pref_dt2w_title">D2TW (Double Tap To Wake)</string>
     <string name="pref_dt2w_description">Включите/Oтключите функцию \"Двойное касание для пробуждения\" (DT2W).</string>
-
-    <!-- GPS/AGPS -->
-    <string name="pref_gps_title">YGPS</string>
-    <string name="pref_gps_description">Скройте приложение YGPS, которое используется для проверки GPS/AGPS.</string>
 
     <!-- HDMI -->
     <string name="pref_hdmi_title">HDMI</string>

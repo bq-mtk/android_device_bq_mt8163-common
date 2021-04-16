@@ -12,16 +12,6 @@
             android:title="@string/pref_dt2w_title" />
     </PreferenceCategory>
 
-    <!-- GPS -->
-    <PreferenceCategory
-            android:key="gps_settings"
-            android:title="@string/gps_settings_title">
-        <SwitchPreference
-            android:key="@string/pref_gps_key"
-            android:summary="@string/pref_gps_description"
-            android:title="@string/pref_gps_title" />
-    </PreferenceCategory>
-
     <!-- HDMI -->
     <PreferenceCategory
             android:key="hdmi_settings"
