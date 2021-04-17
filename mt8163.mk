@@ -282,7 +282,7 @@ PRODUCT_PACKAGES += \
 
 # Vendor security patch level
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.lineage.build.vendor_security_patch=2018-08-05
+    ro.lineage.build.vendor_security_patch=2019-01-05
 
 # Wifi
 PRODUCT_PACKAGES += \
