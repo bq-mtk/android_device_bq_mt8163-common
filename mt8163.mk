@@ -116,9 +116,6 @@ PRODUCT_PACKAGES += \
 	android.hardware.graphics.mapper@2.0-impl \
 	android.hardware.renderscript@1.0-impl \
 	libGLES_android \
-	libgralloc_extra \
-	libgui_ext \
-	libui_ext \
 	libion
 
 PRODUCT_COPY_FILES += \
