@@ -125,8 +125,7 @@ PRODUCT_COPY_FILES += \
 # GPS
 PRODUCT_PACKAGES += \
 	android.hardware.gnss@1.0-impl \
-	libcurl \
-	gps.mt8163
+	libcurl
 
 PRODUCT_PROPERTY_OVERRIDES += \
 	persist.force.gps.mode=gnss
