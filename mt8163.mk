@@ -168,8 +168,7 @@ PRODUCT_PACKAGES += \
 # Lights
 PRODUCT_PACKAGES += \
 	android.hardware.light@2.0-impl-mediatek \
-	android.hardware.light@2.0-service-mediatek \
-	lights.mt8163
+	android.hardware.light@2.0-service-mediatek
 
 # Media
 PRODUCT_PACKAGES += \
