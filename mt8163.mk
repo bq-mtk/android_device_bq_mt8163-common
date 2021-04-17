@@ -269,11 +269,6 @@ PRODUCT_COPY_FILES += \
 	$(COMMON_PATH)/seccomp/mediacodec.policy:$(TARGET_COPY_OUT_VENDOR)/etc/seccomp_policy/mediacodec.policy \
 	$(COMMON_PATH)/seccomp/mediaextractor.policy:$(TARGET_COPY_OUT_VENDOR)/etc/seccomp_policy/mediaextractor.policy
 
-# Sensors
-PRODUCT_PACKAGES += \
-	android.hardware.sensors@1.0-impl-mediatek \
-	android.hardware.sensors@1.0-service-mediatek
-
 # Tether Packages
 PRODUCT_PACKAGES += \
 	android.hardware.tetheroffload.config@1.0 \
