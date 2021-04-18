@@ -682,8 +682,8 @@ on post-fs-data
 	chown system graphics /dev/sw_sync
 
 	# EM baseband file
-	chown root diag /system/bin/baseband_regdump
-	chmod 4750 /system/bin/baseband_regdump
+	chown root diag /system/vendor/bin/baseband_regdump
+	chmod 4750 /system/vendor/bin/baseband_regdump
 
 	# PMU
 	chown root radio /sys/devices/platform/mt-pmic/pmic_access_bank0
@@ -993,16 +993,16 @@ service manage_sn /sbin/manage_sn
 	disabled
 	oneshot
 
-service kisd /system/bin/kisd
+service kisd /system/vendor/bin/kisd
 	user root
 	group system
 
-service stop_modem /system/bin/md_ctrl 0
+service stop_modem /system/vendor/bin/md_ctrl 0
 	class main
 	disabled
 	oneshot
 
-service start_modem /system/bin/md_ctrl 1
+service start_modem /system/vendor/bin/md_ctrl 1
 	class main
 	disabled
 	oneshot
@@ -1022,40 +1022,40 @@ service start_modem /system/bin/md_ctrl 1
 on property:persist.uartconsole.enable=1
 	write /proc/mtprintk 1
 
-service bootlogoupdater /system/bin/boot_logo_updater
+service bootlogoupdater /system/vendor/bin/boot_logo_updater
 	class core
 	oneshot
 
-service mobile_log_d /system/bin/mobile_log_d
+service mobile_log_d /system/vendor/bin/mobile_log_d
 	class main
 
-service met_log_d /system/bin/met_log_d
+service met_log_d /system/vendor/bin/met_log_d
 	class main
 
-service bugreport /system/bin/dumpstate -d -p -B \
+service bugreport /system/vendor/bin/dumpstate -d -p -B \
 	-o /data/data/com.android.shell/files/bugreports/bugreport
 	class main
 	disabled
 	oneshot
 	keycodes 114 115 116
 
-service netdiag /system/bin/netdiag
+service netdiag /system/vendor/bin/netdiag
 	class main
 	socket netdiag stream 0664 root inet
 
-service nvram_daemon /system/bin/nvram_daemon
+service nvram_daemon /system/vendor/bin/nvram_daemon
 	class core
 	user root
 	group system
 	oneshot
 
-service featured /system/bin/featured
+service featured /system/vendor/bin/featured
 	class core
 	user nvram
 	group system
 	socket dfo stream 660 nvram system
 
-service atci_service /system/bin/atci_service
+service atci_service /system/vendor/bin/atci_service
 	class main
 	socket atci-service stream 660 radio system
 	socket atci-serv-fw stream 660 radio system
@@ -1063,7 +1063,7 @@ service atci_service /system/bin/atci_service
 	disabled
 	group radio system
 
-service atcid-daemon-u /system/bin/atcid
+service atcid-daemon-u /system/vendor/bin/atcid
 	class main
 	socket adb_atci_socket stream 660 radio system
 	user system
@@ -1071,7 +1071,7 @@ service atcid-daemon-u /system/bin/atcid
 	disabled
 	oneshot
 
-service atcid-daemon-e /system/bin/atcid
+service atcid-daemon-e /system/vendor/bin/atcid
 	class main
 	socket adb_atci_socket stream 660 radio system
 	user root
@@ -1087,30 +1087,30 @@ on property:persist.service.atci.autostart=1
 	start atci_service
 	start atcid-daemon-u
 
-service audio-daemon /system/bin/audiocmdservice_atci
+service audio-daemon /system/vendor/bin/audiocmdservice_atci
 	class main
 	socket atci-audio stream 660 root system
 	user root
 	disabled
 	oneshot
 
-service md_minilog_util /system/bin/md_minilog_util
+service md_minilog_util /system/vendor/bin/md_minilog_util
 	user root
 	disabled
 	oneshot
 
-service pq /system/bin/pq
+service pq /system/vendor/bin/pq
 	class main
 	user system
 	group system graphics
 	oneshot
 	
-service aal /system/bin/aal
+service aal /system/vendor/bin/aal
 	class main
 	user system
 	group system graphics
 
-service rbfota /system/bin/fota1
+service rbfota /system/vendor/bin/fota1
 	class main
 	disabled
 	oneshot
@@ -1141,60 +1141,60 @@ service wpa_supplicant /system/vendor/bin/hw/wpa_supplicant \
 	disabled
 	oneshot
 
-service dhcpcd_bt-pan /system/bin/dhcpcd -BK -dd
+service dhcpcd_bt-pan /system/vendor/bin/dhcpcd -BK -dd
 	class main
 	user dhcp
 	group net_admin net_raw
 	disabled
 	oneshot
 
-service dhcpcd_wlan0 /system/bin/dhcpcd -BK -dd
+service dhcpcd_wlan0 /system/vendor/bin/dhcpcd -BK -dd
 	class main
 	user dhcp
 	group net_admin net_raw
 	disabled
 	oneshot
 
-service dhcpcd_p2p /system/bin/dhcpcd -BK -dd -A
+service dhcpcd_p2p /system/vendor/bin/dhcpcd -BK -dd -A
 	class main
 	user dhcp
 	group net_admin net_raw
 	disabled
 	oneshot
 
-service iprenew_wlan0 /system/bin/dhcpcd -n
+service iprenew_wlan0 /system/vendor/bin/dhcpcd -n
 	class main
 	user dhcp
 	group net_admin net_raw
 	disabled
 	oneshot
 
-service iprenew_p2p /system/bin/dhcpcd -n
+service iprenew_p2p /system/vendor/bin/dhcpcd -n
 	class main
 	user dhcp
 	group net_admin net_raw
 	disabled
 	oneshot
 
-service dhcp_inform /system/bin/dhcpcd -s -BK -A
+service dhcp_inform /system/vendor/bin/dhcpcd -s -BK -A
 	class main
 	user dhcp
 	group system radio dhcp
 	disabled
 	oneshot
 
-service dhcpv6_inform /system/bin/dhcp6c -c "/etc/wide-dhcpv6/dhcp6cSIP.conf" -Dfi
+service dhcpv6_inform /system/vendor/bin/dhcp6c -c "/etc/wide-dhcpv6/dhcp6cSIP.conf" -Dfi
 	class main
 	user dhcp
 	group system radio dhcp
 	disabled
 	oneshot
 
-service dhcp6cDNS_wlan0 /system/bin/dhcp6c -c "/etc/wide-dhcpv6/dhcp6cDNS.conf" -Df wlan0
+service dhcp6cDNS_wlan0 /system/vendor/bin/dhcp6c -c "/etc/wide-dhcpv6/dhcp6cDNS.conf" -Df wlan0
 	disabled
 	oneshot
 
-service dhcp6c_wlan0 /system/bin/dhcp6c -c "/etc/wide-dhcpv6/dhcp6c.conf" -Df wlan0
+service dhcp6c_wlan0 /system/vendor/bin/dhcp6c -c "/etc/wide-dhcpv6/dhcp6c.conf" -Df wlan0
 	disabled
 	oneshot
 
@@ -1204,11 +1204,11 @@ on property:service.dhcp6c_wlan0.enable=0
 on property:service.dhcp6c_wlan0.enable=1
 	start dhcp6c_wlan0
 
-service dhcp6c_PD /system/bin/dhcp6c -c "/etc/wide-dhcpv6/dhcp6cPD.conf" -Df
+service dhcp6c_PD /system/vendor/bin/dhcp6c -c "/etc/wide-dhcpv6/dhcp6cPD.conf" -Df
 	disabled
 	oneshot
 
-service pppoe_wlan0 /system/bin/launchpppoe
+service pppoe_wlan0 /system/vendor/bin/launchpppoe
 	user root
 	group radio cache inet misc
 	disabled
@@ -1244,17 +1244,17 @@ on property:service.pppoe_wlan0.enable=1
 	write /proc/sys/net/netfilter/nf_conntrack_tcp_no_window_check 1
 	write /proc/sys/net/ipv4/tcp_rto_min 400
 
-service DMAgent /system/bin/dm_agent_binder
+service DMAgent /system/vendor/bin/dm_agent_binder
 	class main
 	user system
 	group system cache
 
-service PPLAgent /system/bin/ppl_agent
+service PPLAgent /system/vendor/bin/ppl_agent
 	class main
 	user system
 	group system cache
 
-service vtservice /system/bin/vtservice
+service vtservice /system/vendor/bin/vtservice
 	class main
 	socket soc_vt_tcv dgram 660 radio system
 	socket soc_vt_stk dgram 660 radio system
@@ -1263,37 +1263,37 @@ service vtservice /system/bin/vtservice
 	group system camera graphics inet net_admin net_raw media sdcard_rw radio sdcard_r media_rw
 	ioprio rt 4
 
-service cmmb /system/bin/cmmbsp
+service cmmb /system/vendor/bin/cmmbsp
 	class main
 	user root
 	group system audio camera graphics inet bluetooth bluetooth_admin net_bw_acct media
 	ioprio rt 4
 
-service enableswap /system/bin/sh /enableswap.sh
+service enableswap /system/vendor/bin/sh /enableswap.sh
 	class core
 	oneshot
 	seclabel u:r:enableswap:s0
 
-service dbus /system/bin/dbus-daemon --system --nofork
+service dbus /system/vendor/bin/dbus-daemon --system --nofork
 	class main
 	socket dbus stream 660 bluetooth bluetooth
 	user bluetooth
 	group bluetooth bluetooth_admin
 
-service bluetoothd /system/bin/bluetoothd -n
+service bluetoothd /system/vendor/bin/bluetoothd -n
 	class main
 	socket bluetooth stream 660 bluetooth bluetooth
 	socket dbus_bluetooth stream 660 bluetooth bluetooth
 	group bluetooth bluetooth_admin misc
 	disabled
 
-service pppd_gprs /system/bin/pppd_dt /dev/ttyACM0 debug noauth refuse-eap usepeerdns nodetach
+service pppd_gprs /system/vendor/bin/pppd_dt /dev/ttyACM0 debug noauth refuse-eap usepeerdns nodetach
 	user root
 	group radio cache inet misc
 	disabled
 	oneshot
 
-service agpsd /system/bin/mtk_agpsd
+service agpsd /system/vendor/bin/mtk_agpsd
 	class main
 	socket agpsd stream 660 gps system
 	socket agpsd2 stream 660 gps inet
@@ -1301,12 +1301,12 @@ service agpsd /system/bin/mtk_agpsd
 	user gps
 	group gps radio inet sdcard_r sdcard_rw misc
 
-service slpd /system/bin/slpd
+service slpd /system/vendor/bin/slpd
 	class main
 	user gps
 	group gps inet
 
-service wifi2agps /system/bin/wifi2agps
+service wifi2agps /system/vendor/bin/wifi2agps
 	class main
 	user wifi
 	group gps inet
@@ -1317,120 +1317,120 @@ service mnld /system/xbin/mnld
 	group gps inet misc sdcard_rw sdcard_r media_rw system
 	socket mnld stream 660 gps system
 
-service ipod /system/bin/ipod
+service ipod /system/vendor/bin/ipod
 	user root
 	group root
 	disabled
 
-service extmdlogger /system/bin/extmdlogger
+service extmdlogger /system/vendor/bin/extmdlogger
 	class main
 	user shell
 	group shell system radio sdcard_rw inet sdcard_r media_rw
 
-service GoogleOtaAgent /system/bin/GoogleOtaBinder
+service GoogleOtaAgent /system/vendor/bin/GoogleOtaBinder
 	class main
 	user root
 	group root
 
-service mdlogger /system/bin/mdlogger
+service mdlogger /system/vendor/bin/mdlogger
 	class main
 	user shell
 	group shell system radio sdcard_rw inet sdcard_r media_rw
 	disabled
 	oneshot
 
-service dualmdlogger /system/bin/dualmdlogger
+service dualmdlogger /system/vendor/bin/dualmdlogger
 	class main
 	user shell
 	group shell system radio sdcard_rw inet sdcard_r media_rw
 	disabled
 	oneshot
 
-service emdlogger1 /system/bin/emdlogger1
+service emdlogger1 /system/vendor/bin/emdlogger1
 	class main
 	user shell
 	group system shell radio sdcard_rw inet sdcard_r media_rw
 	disabled
 	oneshot
 
-service emdlogger2 /system/bin/emdlogger2
+service emdlogger2 /system/vendor/bin/emdlogger2
 	class main
 	user shell
 	group system shell radio sdcard_rw inet sdcard_r media_rw
 	disabled
 	oneshot
 
-service emdlogger5 /system/bin/emdlogger5
+service emdlogger5 /system/vendor/bin/emdlogger5
 	class main
 	user shell
 	group system shell radio sdcard_rw inet sdcard_r media_rw
 	disabled
 	oneshot
 
-service emdlogger6 /system/bin/emdlogger6
+service emdlogger6 /system/vendor/bin/emdlogger6
 	class main
 	user shell
 	group system shell radio sdcard_rw inet sdcard_r media_rw
 	disabled
 	oneshot
 
-service msensord /system/bin/msensord
+service msensord /system/vendor/bin/msensord
 	class main
 	oneshot
 
-service s62xd /system/bin/s62xd
+service s62xd /system/vendor/bin/s62xd
 	disabled
 	user compass
 	group system
 	class main
-service ami304d /system/bin/ami304d
+service ami304d /system/vendor/bin/ami304d
 	user system
 	group system
 	disabled
 	class main
 
-service memsicd /system/bin/memsicd
+service memsicd /system/vendor/bin/memsicd
 	disabled
 	user system
 	group system
 	class main
 
-service memsicd3416x /system/bin/memsicd3416x
+service memsicd3416x /system/vendor/bin/memsicd3416x
 	disabled
 	 user system
 	group system
 	class main
-service akmd8975 /system/bin/akmd8975
+service akmd8975 /system/vendor/bin/akmd8975
 	disabled
 	user system
 	group system
 	class main
 
-service akmd8963 /system/bin/akmd8963
+service akmd8963 /system/vendor/bin/akmd8963
 	disabled
 	user system
 	group system
 	class main
 
-service akmd09911 /system/bin/akmd09911
+service akmd09911 /system/vendor/bin/akmd09911
 	disabled
 	user system
 	group system
 	class main
 	
-service bmm050d /system/bin/bmm050d
+service bmm050d /system/vendor/bin/bmm050d
 	disabled
 	user system
 	group system
 	class main
 
-service bmm056d /system/bin/bmm056d
+service bmm056d /system/vendor/bin/bmm056d
 	disabled
 	user system
 	group system
 	class main
  
-service bstd /system/bin/bstd 
+service bstd /system/vendor/bin/bstd 
 	user system
 	group system
 	class main
@@ -1439,40 +1439,40 @@ on property:persist.service.bstd.enable=1
 on property:persist.service.bstd.enable=0	
 	stop bstd	
 	
-service mc6420d /system/bin/mc6420d
+service mc6420d /system/vendor/bin/mc6420d
 	disabled
 	user system
 	group system
 	class main
-service qmc5983d /system/bin/qmc5983d
+service qmc5983d /system/vendor/bin/qmc5983d
 	disabled
 	 user system
 	group system
 	class main
 
-service orientationd /system/bin/orientationd
+service orientationd /system/vendor/bin/orientationd
 	disabled
 	user system
 	group system input
 	class main
-service AcdApiDaemon /system/bin/AcdApiDaemon
+service AcdApiDaemon /system/vendor/bin/AcdApiDaemon
 	disabled
 	user system
 	group system
 	class main
 
-service geomagneticd /system/bin/geomagneticd
+service geomagneticd /system/vendor/bin/geomagneticd
 	disabled
 	user system
 	group system input
 	class main
 
-service mpud6050 /system/bin/mpud6050
+service mpud6050 /system/vendor/bin/mpud6050
 	oneshot
 	user system
 	group system
 
-service mc64xxd /system/bin/mc64xxd
+service mc64xxd /system/vendor/bin/mc64xxd
 	disabled
 	user system
 	group system
@@ -1487,78 +1487,78 @@ on property:ro.build.type=user
 on property:ro.build.type=userdebug
 	start emsvr_user
 
-service emsvr_user /system/bin/em_svr
+service emsvr_user /system/vendor/bin/em_svr
 	disabled
 	user system
 	group system radio diag
 
-service emsvr /system/bin/em_svr
+service emsvr /system/vendor/bin/em_svr
 	disabled
 	user root
 
-service shutdown /system/bin/shutdown
+service shutdown /system/vendor/bin/shutdown
 	user root
 	group root
 	disabled
 
-service NvRAMAgent /system/bin/nvram_agent_binder
+service NvRAMAgent /system/vendor/bin/nvram_agent_binder
 	class main
 	user system
 	group system
 
-service thermal_manager /system/bin/thermal_manager
+service thermal_manager /system/vendor/bin/thermal_manager
 	class main
 	user root
 	oneshot
 
-service thermal /system/bin/thermal
+service thermal /system/vendor/bin/thermal
 	class main
 	user root
 	group system
 
-service thermald /system/bin/thermald
+service thermald /system/vendor/bin/thermald
 	class main
 	user root
 	group system
 
-service sn /system/bin/sn
+service sn /system/vendor/bin/sn
 	class main
 	user system
 	group system sdcard_rw
 	oneshot
 
-service poad /system/bin/poad
+service poad /system/vendor/bin/poad
 	class main
 	user system
 	group system
 	oneshot
 
-service batterywarning /system/bin/batterywarning
+service batterywarning /system/vendor/bin/batterywarning
 	class main
 	user shell
 	group shell
 
-service backuprestore /system/bin/br_app_data_service
+service backuprestore /system/vendor/bin/br_app_data_service
 	class main
 	socket backuprestore stream 0660 root sdcard_rw
 	user root
 
-service MtkCodecService /system/bin/MtkCodecService
+service MtkCodecService /system/vendor/bin/MtkCodecService
 	class main
 	user system
 	group audio media sdcard_r
 
-service guiext-server /system/bin/guiext-server
+service guiext-server /system/vendor/bin/guiext-server
 	class main
 	user system
 	group system graphics
 
-service OperaMaxSystem /system/bin/OperaMaxSystem
+service OperaMaxSystem /system/vendor/bin/OperaMaxSystem
 	class main
 	user root
 	group root
 
-service kpoc_charger /system/bin/kpoc_charger
+service kpoc_charger /system/vendor/bin/kpoc_charger
 	class charger
 
 
@@ -1572,12 +1572,12 @@ on boot
 
 	chmod 0644 /system/lib/libzteevdo-ril.so
 	chomd 0644 /system/lib/zterilPara
-	chown root /system/bin/pppd
-	chmod 4755 /system/bin/pppd
-	chown root /system/bin/chat
-	chmod 4755 /system/bin/chat
+	chown root /system/vendor/bin/pppd
+	chmod 4755 /system/vendor/bin/pppd
+	chown root /system/vendor/bin/chat
+	chmod 4755 /system/vendor/bin/chat
 
-service ril-3gddaemon /system/bin/rild_dongle
+service ril-3gddaemon /system/vendor/bin/rild_dongle
 	class main
 	socket rild-dongle stream 660 root radio
 	socket rild-dongle-debug stream 660 radio radio
@@ -1585,24 +1585,24 @@ service ril-3gddaemon /system/bin/rild_dongle
 	group radio cache inet misc audio log
 	disabled
 
-service usbdongled /system/bin/dongled
+service usbdongled /system/vendor/bin/dongled
 	class main
 	user root
 	group radio cache inet misc
 	enable
 
-service zpppd_gprs /system/bin/init.gprs-pppd
+service zpppd_gprs /system/vendor/bin/init.gprs-pppd
 	user root
 	group radio cache inet misc
 	disabled
 	oneshot
 
-service rpmb_svc /system/bin/rpmb_svc
+service rpmb_svc /system/vendor/bin/rpmb_svc
 	class main
 	group system drmrpc
 	disabled
 
-service gsensorcalid /system/bin/gsensorcalid
+service gsensorcalid /system/vendor/bin/gsensorcalid
 	user root
 	group root
 	disabled
@@ -1613,7 +1613,7 @@ on property:persist.sys.gsensorcalid=stop
 on property:persist.sys.gsensorcalid=start
 	start gsensorcalid
 
-service hdcpkey /system/bin/hdcpkey
+service hdcpkey /system/vendor/bin/hdcpkey
 	user root
 	group root
 	oneshot 

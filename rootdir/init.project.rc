@@ -74,11 +74,11 @@ on boot
 	setprop persist.radio.reset_on_switch true
 
 on init
-service fuse_usbotg /system/bin/sdcard -u 1023 -g 1023 -w 1023 -d /mnt/media_rw/usbotg /storage/usbotg
+service fuse_usbotg /system/vendor/bin/sdcard -u 1023 -g 1023 -w 1023 -d /mnt/media_rw/usbotg /storage/usbotg
 	class late_start
 	disabled
 
-service audio-daemon /system/bin/audiocmdservice_atci
+service audio-daemon /system/vendor/bin/audiocmdservice_atci
 	class main
 	socket atci-audio stream 660 media system
 	user media
@@ -86,13 +86,13 @@ service audio-daemon /system/bin/audiocmdservice_atci
 	disabled
 	oneshot
 
-service wmtLoader /system/bin/wmt_loader
+service wmtLoader /system/vendor/bin/wmt_loader
 	user root
 	group root
 	class core
 	oneshot
 
-service conn_launcher /system/bin/6620_launcher -p /system/etc/firmware/
+service conn_launcher /system/vendor/bin/6620_launcher -p /system/etc/firmware/
 	user system
 	group system
 	class core
@@ -100,7 +100,7 @@ service conn_launcher /system/bin/6620_launcher -p /system/etc/firmware/
 on property:service.wcn.coredump.mode=2
 	start stp_dump
 
-service stp_dump /system/bin/stp_dump3
+service stp_dump /system/vendor/bin/stp_dump3
 	user root
 	group root
 	class core
