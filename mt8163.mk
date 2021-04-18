@@ -271,9 +271,9 @@ PRODUCT_PACKAGES += \
 
 # Thermal
 PRODUCT_COPY_FILES += \
-	$(COMMON_PATH)/configs/thermal/thermal.conf:$(TARGET_COPY_OUT_SYSTEM)/etc/.tp/thermal.conf \
-	$(COMMON_PATH)/configs/thermal/thermal.off.conf:$(TARGET_COPY_OUT_SYSTEM)/etc/.tp/thermal.off.conf \
-	$(COMMON_PATH)/configs/thermal/.ht120.mtc:$(TARGET_COPY_OUT_SYSTEM)/etc/.tp/.ht120.mtc
+	$(COMMON_PATH)/configs/thermal/thermal.conf:$(TARGET_COPY_OUT_VENDOR)/etc/.tp/thermal.conf \
+	$(COMMON_PATH)/configs/thermal/thermal.off.conf:$(TARGET_COPY_OUT_VENDOR)/etc/.tp/thermal.off.conf \
+	$(COMMON_PATH)/configs/thermal/.ht120.mtc:$(TARGET_COPY_OUT_VENDOR)/etc/.tp/.ht120.mtc
 
 # USB
 PRODUCT_PACKAGES += \
