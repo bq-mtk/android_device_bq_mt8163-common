@@ -47,9 +47,7 @@ PRODUCT_COPY_FILES += \
 # Bluetooth
 PRODUCT_PACKAGES += \
 	android.hardware.bluetooth@1.0-impl \
-	android.hardware.bluetooth@1.0-service \
-	libbt-vendor \
-	libbluetooth_mtk
+	android.hardware.bluetooth@1.0-service
 
 PRODUCT_PROPERTY_OVERRIDES += \
 	ro.boot.btmacaddr=00:00:00:00:00:00
