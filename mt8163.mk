@@ -181,8 +181,6 @@ PRODUCT_COPY_FILES += \
 	$(COMMON_PATH)/configs/media/media_codecs_mediatek_audio.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_mediatek_audio.xml
 
 PRODUCT_PROPERTY_OVERRIDES += \
-	media.stagefright.legacyencoder=true \
-	media.stagefright.less-secure=true \
 	persist.media.treble_omx=false
 
 # Memory optimization
