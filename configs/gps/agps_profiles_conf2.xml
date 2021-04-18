@@ -48,6 +48,13 @@
         auto configure the service indicator of supl_version if above mcc_mnc condition is met
         available value: 0~255, default value is 0
 
+    esupl_apn_mode:
+        how to choose APN for eSUPL
+        available value: 0 to use Emergency / IMS APN if they are available as GSMA IR92 (default)
+                         1 to use Emergency APN if it is available
+                         2 to use IMS APN if it is available
+                         3 not to use Emergency / IMS APN, just as a normal supl
+
     ===== other parameters are used for DM =====
     app_id (optional):
         "ap0004"
@@ -90,14 +97,21 @@
 
   <!-- GOOGLE-->
   <supl_profile name="GOOGLE IP"
-      addr="173.194.72.192"
+      addr="74.125.204.192"
       port="7276"
       tls="false"
   />
 
   <!-- Spirent Lab -->
-  <supl_profile name="Spirent"
+  <supl_profile name="SpirentLcs"
       addr="www.spirent-lcs.com"
+      port="7275"
+      tls="true"
+  />
+
+  <!-- Spirent Lab Operator Test Cases -->
+  <supl_profile name="Spirent"
+      addr="www.spirent.com"
       port="7275"
       tls="true"
   />
@@ -144,6 +158,20 @@
       tls="true"
   />
 
+  <!-- Ericsson  Lab FQDN 3 -->
+  <supl_profile name="Ericsson FQDN TW"
+      addr="gmpc01.ert.ericsson.se"
+      port="7275"
+      tls="true"
+  />
+
+  <!-- Ericsson  Lab FQDN 4 -->
+  <supl_profile name="Ericsson FQDN TW 2"
+      addr="gmpc03GIC.ericsson.ca"
+      port="7275"
+      tls="true"
+  />
+
   <!-- ORANGE -->
   <supl_profile name="ORANGE"
       addr="agpss.orange.fr"
@@ -164,6 +192,13 @@
       address_type="IPv4address:port"
   />
 
+  <!-- qxwz: China Public Server on Internet -->
+  <supl_profile name="qxwz"
+      addr="supl.qxwz.com"
+      port="7275"
+      tls="true"
+  />
+
   <!-- Telstra -->
   <supl_profile name="Telstra"
       addr="agps.supl.telstra.com"
@@ -179,8 +214,36 @@
   />
 
   <!-- T-Mobile -->
-  <supl_profile name="T-Mobile"
+  <supl_profile name="T-Mobile LBS"
       addr="lbs.geo.t-mobile.com"
+      port="7275"
+      tls="true"
+  />
+
+  <!-- T-Mobile for UE with SHA2 -->
+  <supl_profile name="T-Mobile SUPL"
+      addr="supl.geo.t-mobile.com"
+      port="7275"
+      tls="true"
+  />
+
+  <!-- T-Mobile for LPP Test -->
+  <supl_profile name="T-Mobile LAB"
+      addr="supl.geo.msg.lab.t-mobile.com"
+      port="7275"
+      tls="true"
+  />
+
+  <!-- KDDI -->
+  <supl_profile name="KDDI"
+      addr="lcs-iot.kddi.ne.jp"
+      port="7275"
+      tls="true"
+  />
+
+  <!-- KDDI Lab Test -->
+  <supl_profile name="KDDI Lab Test"
+      addr="lcs-iot-test.kddi.ne.jp"
       port="7275"
       tls="true"
   />
@@ -229,6 +292,18 @@
       supl_version="1"
       tls_version="2"
       sha_version="1"
+  />
+
+  <!-- nlp_profile
+
+    name:
+        NLP vendor name
+
+    package_name:
+        NLP apk package name
+  -->
+  <nlp_profile name="Baidu"
+      package_name="com.baidu.map.location"
   />
 
   <!-- cdma_profile
@@ -304,6 +379,27 @@
 
     e911_open_gps:
         enable/disable opening GPS earlier when E911 call is dialed
+
+    tc10_ignore_fw_config:
+        enable/disable TC10's configuration from FWK
+        available value: true, false (default)
+
+    lppe_network_location_disable:
+        enable/disable LPPe's crowd source location (ex: network location)
+        available value: true, false (default)
+
+    agps_nvram_enable
+        enable/disable AGPS NVRAM functionality
+        available value: true (default), false
+
+    lbs_log_enable
+        enable/disable lbs log to the debugging port
+        available value: true (default), false
+
+    lppe_crowd_source_confident
+        determine how confident you would like to fill in LPPe HA3D Position for crowd source location
+        available value: 0~99, 90 is default
+
   -->
   <agps_setting
     agps_enable="true"
@@ -311,6 +407,11 @@
     gpevt="false"
     e911_gps_icon_enable="false"
     e911_open_gps="false"
+    tc10_ignore_fw_config="false"
+    lppe_network_location_disable="false"
+    agps_nvram_enable="true"
+    lbs_log_enable="true"
+    lppe_crowd_source_confident="90"
   />
 
 
@@ -320,29 +421,24 @@
         enable/disable SIB8/SIB16
         available value: true (default), false
 
-    glonass_satellite_enable:
-        enable/disable Glonass Satellite if hardware can support Glonass
-        available value: true (default), false
-
-    beidou_satellite_enable:
-        enable/disable Beidou Satellite if hardware can support Beidou
-        available value: true (default), false
-
-    galileo__satellite_enable:
-        enable/disable Galileo Satellite if hardware can support Galileo
-        available value: true (default), false
-
     a_glonass_satellite_enable:
         enable/disable Glonass aiding if hardware can support A-Glonass
         available value: true (default), false
 
+    a_beidou_satellite_enable:
+        enable/disable Beidou aiding if hardware can support A-Beidou
+        available value: true, false (default)
+
+    a_galileo__satellite_enable:
+        enable/disable Galileo aiding if hardware can support A-Galileo
+        available value: true, false (default)
+
   -->
   <gnss_setting
     sib8_16_enable="true"
-    glonass_satellite_enable="true"
-    beidou_satellite_enable="true"
-    galileo_satellite_enable="true"
     a_glonass_satellite_enable="true"
+    a_beidou_satellite_enable="false"
+    a_galileo_satellite_enable="false"
   />
 
   <!-- cp_setting
@@ -381,6 +477,21 @@
         enable/disable to reject non911 NILR request
         available value: true, false (default)
 
+    cp_2g_disable:
+        enable/disable CP GSM functionality
+        available value: true, false (default)
+
+    cp_3g_disable:
+        enable/disable CP UMTS functionality
+        available value: true, false (default)
+
+    cp_4g_disable:
+        enable/disable CP LTE functionality
+        available value: true, false (default)
+
+    cp_lppe_enable: (not ready, in development)
+        enable/disable CP LPPe functionality
+        available value: true (default), false
   -->
   <cp_setting
     molr_pos_method="0"
@@ -392,6 +503,10 @@
     epc_molr_lpp_payload_enable="false"
     epc_molr_lpp_payload="D2000010237B2026404FB8007202BFFFFFFFF80000000020C0000100940FB9001202B7FFFFF8000000000061800002018A00"
     reject_non911_nilr_enable="false"
+    cp_2g_disable="false"
+    cp_3g_disable="false"
+    cp_4g_disable="false"
+    cp_lppe_enable="true"
   />
 
   <!-- up_setting
@@ -452,10 +567,6 @@
         enable/disable the eCID capability
         available value: true (default), false
 
-    otdoa_enable:
-        enable/disable the OTDOA capability
-        available value: true, false (default)
-
     autonomous_enable:
         enable/disable the Autonomous capability
         available value: true (default), false
@@ -490,6 +601,10 @@
         enable/disable the auto profile configuration based on current mcc or mcc_mnc specified in cur_supl_profile or supl_profile
         available value: true (default), false
 
+    ut1:
+        customize the SUPL UT1 timer
+        available value: 1~60, default value is 11 (OMA spec)
+
     ut2:
         customize the SUPL UT2 timer
         available value: 1~60, default value is 11 (OMA spec)
@@ -505,20 +620,57 @@
     imsi_enable:
         enable/disable the valid IMSI in SUPL messages
         available value: true (default), false
+
     no_sensitive_log:
         remove/allow agps daemon's log with sensitive info (e.g., the current location)
         available value: true, false (default)
+
     supl_ver_minor:
         Minor of SUPL version for ULP
         available value: 0~255, default value is 0
         choosable value in LocationEM: 0~5
+
     supl_ver_ser_ind:
         Service Indicator of SUPL version for ULP
         available value: 0~255, default value is 0
         choosable value in LocationEM: 0~5
+
     tls_reuse_enable:
         enable/disable tls session reuse mode
         available value: true, false (default)
+
+    imsi_cache_enable:
+        enable/disable the IMSI cache mechanism
+        available value: true, false (default)
+    supl_raw_data_enable:
+
+        enable/disable SUPL raw data dump to main log (logcat)
+        available value: true, false (default)
+
+    allow_ni_for_gps_off:
+        allow NI request when GPS is off in location setting
+        available value: true, false (default)
+
+    force_otdoa_assist_req:
+        force to fill otdoa assistance request when posMethod=agpsSETassisted,agpsSETassistedpref,ver2-agnssSETassisted or agnssSETassistedpref
+        Notice that some servers may not allow to get otdoa assistance request when posMethod is not OTDOA
+        available value: true, false (default)
+
+    up_lppe_enable (not ready, in development)
+        enable/disable UP LPPe functionality
+        available value: true (default), false
+
+    esupl_apn_mode:
+        how to choose APN for eSUPL
+        available value: 0 to use Emergency / IMS APN if they are available as GSMA IR92 (default)
+                         1 to use Emergency APN if it is available
+                         2 to use IMS APN if it is available
+                         3 not to use Emergency / IMS APN, just as a normal supl
+
+    tcp_keepalive:
+        enable/disable TCP Keepalive functionality for SUPL
+        available value: 0 disable (default)
+                         > 0 enable to send TCP keepalive packetets and interval value is tcp_keepalive in second
   -->
   <up_setting
     ca_enable="false"
@@ -533,7 +685,6 @@
     msa_enable="true"
     msb_enable="true"
     ecid_enable="true"
-    otdoa_enable="false"
     autonomous_enable="true"
     aflt_enable="false"
     qop_hacc="22"
@@ -546,15 +697,22 @@
     lpp_enable="true"
     cert_from_sdcard="true"
     auto_profile_enable="true"
+    ut1="11"
     ut2="11"
     ut3="10"
     sync_to_slp="false"
     imsi_enable="true"
-    no_sensitive_log="false"
+    no_sensitive_log="true"
     supl_ver_minor="0"
     supl_ver_ser_ind="0"
     tls_reuse_enable="false"
+    imsi_cache_enable="false"
+    supl_raw_data_enable="false"
+    allow_ni_for_gps_off="false"
+    force_otdoa_assist_req="false"
+    up_lppe_enable="true"
+    esupl_apn_mode="0"
+    tcp_keepalive="0"
   />
 
 </mtk_agps_profiles>
-
