@@ -74,9 +74,6 @@ on boot
 	setprop persist.radio.reset_on_switch true
 
 on init
-service fuse_usbotg /system/vendor/bin/sdcard -u 1023 -g 1023 -w 1023 -d /mnt/media_rw/usbotg /storage/usbotg
-	class late_start
-	disabled
 
 service audio-daemon /system/vendor/bin/audiocmdservice_atci
 	class main
