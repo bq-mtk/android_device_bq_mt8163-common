@@ -106,6 +106,9 @@ PRODUCT_PRODUCT_PROPERTIES += \
 	log.tag.launcher_force_rotate=VERBOSE \
 	lockscreen.rot_override=true
 
+# MTKRC
+PRODUCT_DEFAULT_PROPERTY_OVERRIDES += ro.mtkrc.path=/vendor/etc/init/hw/
+
 # Graphic
 PRODUCT_PACKAGES += \
 	android.hardware.graphics.allocator@2.0-impl \
