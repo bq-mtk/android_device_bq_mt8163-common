@@ -112,34 +112,6 @@ WIFI_DRIVER_STATE_OFF := 0
 BOARD_SEPOLICY_DIRS += $(COMMON_PATH)/sepolicy
 SELINUX_IGNORE_NEVERALLOWS := true
 
-# Shims
-TARGET_LD_SHIM_LIBS := \
-	/system/vendor/lib/libwvm.so|libshim_wvm.so \
-	/system/bin/kpoc_charger|libshim_media.so \
-	/system/bin/xlog|libshim_xlog.so \
-	/system/lib/libshowlogo.so|libshim_media.so \
-	/system/bin/program_binary_service|libshim_program_binary_service.so \
-	/system/lib/hw/audio.primary.mt8163.so|libshim_audio.so \
-	/system/lib64/hw/audio.primary.mt8163.so|libshim_audio.so \
-	/system/vendor/lib/soundfx/libaudiopreprocessing.so|libshim_audio.so \
-	/system/bin/audiocmdservice_atci|libshim_audio.so \
-	/system/vendor/lib/libcam_utils.so|libshim_media.so \
-	/system/vendor/lib64/libcam_utils.so|libshim_media.so \
-	/system/vendor/lib/libcam_utils.so|libshim_camera.so \
-	/system/vendor/lib64/libcam_utils.so|libshim_camera.so \
-	/system/lib/libcam.utils.sensorlistener.so|libshim_camera.so \
-	/system/lib64/libcam.utils.sensorlistener.so|libshim_camera.so \
-	/system/lib/libsource.so|libshim_media.so \
-	/system/lib64/libsource.so|libshim_media.so \
-	/system/lib/libsink.so|libshim_media.so \
-	/system/lib64/libsink.so|libshim_media.so \
-	/system/lib/libstagefright_soft_ddpdec.so|libshim_omx.so \
-	/system/lib/libMtkOmxVdecEx.so|libshim_omx.so \
-	/system/lib/libMtkOmxVenc.so|libshim_omx.so \
-	/system/bin/nandread|libshim_bionic.so \
-	/system/lib/libgui_ext.so|libshim_gui.so \
-	/system/lib64/libgui_ext.so|libshim_gui.so
-
 # Gatekeeper
 BOARD_USE_SOFT_GATEKEEPER := true
 
