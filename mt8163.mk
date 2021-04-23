@@ -239,8 +239,21 @@ PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
 	ro.secure=0
 
 # Ramdisk
+PRODUCT_PACKAGES += \
+	init.connectivity.rc \
+	init.modem.rc \
+	init.mt8163.rc \
+	init.project.rc \
+	init.sensor_1_0.rc \
+	ueventd.mt8163.rc \
+	fstab.enableswap \
+	init.usb.configfs.rc \
+	init.recovery.mt8163.rc \
+	init.mt8163.usb.rc
+
 PRODUCT_COPY_FILES += \
-	$(call find-copy-subdir-files,*,$(COMMON_PATH)/rootdir,root)
+	$(COMMON_PATH)/rootdir/etc/fstab.mt8163:root/fstab.mt8163 \
+	$(COMMON_PATH)/rootdir/etc/init.mt8163.rc:root/init.mt8163.rc
 
 # Remove Unused/Useless packages
 PRODUCT_PACKAGES += \

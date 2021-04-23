@@ -1,0 +1,96 @@
+import init.mt8163.usb.rc
+
+on init
+	# Legacy Partition Support
+	symlink /dev/block/platform/mtk-msdc.0/11230000.MSDC0/by-name/boot /dev/bootimg
+	symlink /dev/block/platform/mtk-msdc.0/11230000.MSDC0/by-name/recovery /dev/recovery
+	symlink /dev/block/platform/mtk-msdc.0/11230000.MSDC0/by-name/secro	/dev/sec_ro
+	symlink /dev/block/platform/mtk-msdc.0/11230000.MSDC0/by-name/kb /dev/kb
+	symlink /dev/block/platform/mtk-msdc.0/11230000.MSDC0/by-name/dkb /dev/dkb
+	symlink /dev/block/platform/mtk-msdc.0/11230000.MSDC0/by-name/seccfg /dev/seccfg
+	symlink /dev/block/platform/mtk-msdc.0/11230000.MSDC0/by-name/logo /dev/logo
+	symlink /dev/block/platform/mtk-msdc.0/11230000.MSDC0/by-name/misc2 /dev/misc2
+
+on post-fs-data
+	# BQ27520
+	chown system system /proc/bq27520-update
+
+	# Camera
+	chmod 0660 /dev/MAINAF
+	chown system camera /dev/MAINAF
+
+	chmod 0660 /dev/MAINAF2
+	chown system camera /dev/MAINAF2
+
+	chmod 0660 /dev/SUBAF
+	chown system camera /dev/SUBAF
+
+	chmod 0660 /dev/GAF001AF
+	chown system camera /dev/GAF001AF
+	
+	chmod 0660 /dev/DW9714AF
+	chown system camera /dev/DW9714AF
+	
+	chmod 0660 /dev/AD5820AF
+	chown system camera /dev/AD5820AF
+	
+	chmod 0660 /dev/BU64745GWZAF
+	chown system camera /dev/BU64745GWZAF
+
+	chmod 0660 /dev/FM50AF
+	chown system camera /dev/FM50AF
+
+	# SMB
+	chown system system /proc/smb/ScreenComm
+	chmod 0660 /proc/smb/ScreenComm
+
+	# ATCID
+	chmod 660 /dev/ttyGS0 
+	chown system /dev/ttyGS0 
+	chmod 660 /dev/ttyGS1 
+	chown system /dev/ttyGS1
+	
+service hdmi /system/bin/hdmi
+	class main
+	user system
+	group system net_admin inet
+
+	# DT2W
+	chown system system /proc/gesture_open
+
+
+on boot
+	# PPP
+	chmod 777 /etc/ppp/ip-up
+	chmod 777 /etc/ppp/ip-down
+
+	chmod 777 /etc/ppp/ip-up-ppp0
+	chmod 777 /etc/ppp/ip-down-ppp0
+
+	setprop persist.radio.reset_on_switch true
+	setprop rild.mark_switchuser 0
+
+	chmod 0644 /vendor/lib/libzteevdo-ril.so
+	chomd 0644 /vendor/lib/zterilPara
+	chown root /vendor/bin/chat
+	chmod 4755 /vendor/bin/chat
+
+service ril-3gddaemon /system/bin/rild_dongle
+	class main
+	socket rild-dongle stream 660 root radio
+	socket rild-dongle-debug stream 660 radio radio
+	user root
+	group radio cache inet misc audio log
+	disabled
+
+service usbdongled /vendor/bin/dongled
+	class main
+	user root
+	group radio cache inet misc
+	enabled
+
+service zpppd_gprs /vendor/bin/init.gprs-pppd
+	user root
+	group radio cache inet misc
+	disabled
+	oneshot
