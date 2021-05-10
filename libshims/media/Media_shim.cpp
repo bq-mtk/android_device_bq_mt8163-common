@@ -17,6 +17,9 @@
 #include <media/AudioTrack.h>
 #include <media/mediarecorder.h>
 
+#include <utils/String16.h>
+#include <system/audio.h>
+
 #include "common.h"
 #include "media/Media_shim.h"
 
@@ -51,9 +54,9 @@ extern void _ZN7android10AudioTrackC1E19audio_stream_type_tj14audio_format_tjj20
     PGM_GNUC_UNUSED bool doNotReconnect,
     PGM_GNUC_UNUSED float maxRequiredSpeed) {/* FIX ME! */}
 /*----------------------------------------------------*/
-extern int _ZN7android11AudioSourceC1E14audio_source_tRKNS_8String16Ejjjji(uint32_t inputSource, const String16 &opPackageName,
-    uint32_t sampleRate, uint32_t channelCount, uint32_t outSampleRate,
-    uid_t uid, pid_t pid);
+extern void _ZN7android11AudioSourceC1E14audio_source_tRKNS_8String16Ejjjjii(audio_source_t inputSource, const String16 &opPackageName,
+            uint32_t sampleRate, uint32_t channels, uint32_t outSampleRate, uid_t uid, pid_t pid,
+            audio_port_handle_t selectedDeviceId);
 /*----------------------------------------------------*/
 extern int _ZN7android8hardware14ICameraService11asInterfaceERKNS_2spINS_7IBinderEEE(const sp<hardware::ICameraService>& cameraService,
     const sp<android::hardware::ICameraClient>& cameraClient,
@@ -70,7 +73,7 @@ extern int _ZN7android8hardware15BpCameraService13getCameraInfoEiPNS0_10CameraIn
 /*----------------------------------------------------*/
 extern status_t _ZN7android13MediaRecorder13setOutputFileEi(int fd);
 /*----------------------------------------------------*/
-extern void _ZN7android14MediaExtractor23RegisterDefaultSniffersEv();
+extern void _ZN7android14MediaExtractor23RegisterDefaultSniffersEv() {/* FIX ME! */}
 /*----------------------------------------------------*/
 
 /* 
@@ -164,11 +167,11 @@ void _ZN7android10AudioTrackC1E19audio_stream_type_tj14audio_format_tjm20audio_o
 * USE: AudioSource (?).
 * NOTES: It looks like this function was renamed in N. Stub out to the correct call.
 */
-int _ZN7android11AudioSourceC1E14audio_source_tRKNS_8String16Ejjj(uint32_t inputSource, const String16 &PackageName,
-    uint32_t sampleRate, uint32_t channelCount, uint32_t outSampleRate,
-        uid_t uid, pid_t pid) 
+void _ZN7android11AudioSourceC1E14audio_source_tRKNS_8String16Ejjj(audio_source_t inputSource, const String16 &opPackageName,
+            uint32_t sampleRate, uint32_t channels, uint32_t outSampleRate, uid_t uid, pid_t pid)
 {
-    return _ZN7android11AudioSourceC1E14audio_source_tRKNS_8String16Ejjjji(inputSource, PackageName, sampleRate, channelCount, outSampleRate, uid, pid);
+    // Invoke the Pie android::AudioSource constructor with the extra parameter
+    _ZN7android11AudioSourceC1E14audio_source_tRKNS_8String16Ejjjjii(inputSource, opPackageName, sampleRate, channels, outSampleRate, uid, pid, 0);
 }
  
 /* 
