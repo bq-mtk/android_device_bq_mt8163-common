@@ -172,6 +172,10 @@ BOARD_CONNECTIVITY_MODULE := conn_soc
 # DRM
 TARGET_ENABLE_MEDIADRM_64 := true
 
+# SDK Override
+TARGET_PROCESS_SDK_VERSION_OVERRIDE := \
+    /system/xbin/mnld=23
+
 # HIDL Manifest
 DEVICE_MANIFEST_FILE := $(COMMON_PATH)/manifest.xml
 DEVICE_MATRIX_FILE	:= $(COMMON_PATH)/compatibility_matrix.xml
