@@ -45,7 +45,10 @@ using android::IGraphicBufferConsumer;
 using android::IGraphicBufferProducer;
 using android::PixelFormat;
 using android::Rect;
+using android::SurfaceComposerClient;
 //using android::SurfaceControl;
+
+android::SurfaceComposerClient::Transaction *t;
 
 /* Android N exports */
 extern "C" {
@@ -99,5 +102,9 @@ extern "C" {
      */
     void _ZN7android14SurfaceControl8setLayerEj(uint32_t layer) {
         _ZN7android14SurfaceControl8setLayerEi(static_cast<uint32_t>(layer));
+    }
+
+    void _ZN7android21SurfaceComposerClient21openGlobalTransactionEv() {
+        t = new(android::SurfaceComposerClient::Transaction);
     }
 }
