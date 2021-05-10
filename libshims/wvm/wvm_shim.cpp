@@ -4,7 +4,7 @@
 
 #include <log/log.h>
 #include <media/IMediaSource.h>
-#include <media/stagefright/MediaSource.h>
+#include <media/MediaSource.h>
 #include <media/stagefright/MediaBuffer.h>
 #include <media/stagefright/MediaBufferGroup.h>
 
