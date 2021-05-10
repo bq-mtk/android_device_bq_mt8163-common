@@ -146,7 +146,8 @@ TARGET_LD_SHIM_LIBS := \
     /system/lib/libmtkjpeg.so|libshim_bionic.so \
     /system/lib64/libmtkjpeg.so|libshim_bionic.so \
     /system/lib/libvcodecdrv.so|libshim_bionic.so \
-    /system/lib64/libvcodecdrv.so|libshim_bionic.so
+    /system/lib64/libvcodecdrv.so|libshim_bionic.so \
+    /system/bin/msensord|libshim_mute_log.so
 
 # Gatekeeper
 BOARD_USE_SOFT_GATEKEEPER := true
