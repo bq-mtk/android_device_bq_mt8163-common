@@ -78,6 +78,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
 	debug_tool
 
+# Enable StageFrightCodec 2.0
+PRODUCT_PACKAGES += \
+    libstagefright_ccodec
+
 # FM Radio
 PRODUCT_PACKAGES += \
 	FMRadio \
