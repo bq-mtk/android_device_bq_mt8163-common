@@ -140,7 +140,9 @@ TARGET_LD_SHIM_LIBS := \
 	/system/lib/libgui_ext.so|libshim_gui.so \
 	/system/lib64/libgui_ext.so|libshim_gui.so \
     /system/lib/libcam.utils.so|libshim_camera.so \
-    /system/lib64/libcam.utils.so|libshim_camera.so
+    /system/lib64/libcam.utils.so|libshim_camera.so \
+    /system/lib/libmtkplayer.so|libshim_bionic.so \
+    /system/lib64/libmtkplayer.so|libshim_bionic.so
 
 # Gatekeeper
 BOARD_USE_SOFT_GATEKEEPER := true
