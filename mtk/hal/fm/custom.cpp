@@ -14,7 +14,7 @@ static struct fm_fake_channel_t fake_ch_info = {0, 0};
 
 int CUST_get_cfg(struct CUST_cfg_ds *cfg) {
     char val[PROPERTY_VALUE_MAX] = {0};
-    cfg->chip = 0x6630;
+    cfg->chip = 0x6627;
     cfg->band = FM_RAIDO_BAND;
     cfg->low_band = FM_FREQ_MIN;
     cfg->high_band = FM_FREQ_MAX;
