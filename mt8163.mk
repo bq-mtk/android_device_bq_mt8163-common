@@ -182,6 +182,10 @@ PRODUCT_PACKAGES += \
 	android.hardware.light@2.0-service-mediatek \
 	lights.mt8163
 
+# LiveDisplay
+PRODUCT_PACKAGES += \
+    vendor.lineage.livedisplay@2.0-service-mediatek
+
 # Media
 PRODUCT_PACKAGES += \
 	android.hardware.media.omx@1.0
