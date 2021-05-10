@@ -138,7 +138,9 @@ TARGET_LD_SHIM_LIBS := \
 	/system/lib/libMtkOmxVenc.so|libshim_omx.so \
 	/system/bin/nandread|libshim_bionic.so \
 	/system/lib/libgui_ext.so|libshim_gui.so \
-	/system/lib64/libgui_ext.so|libshim_gui.so
+	/system/lib64/libgui_ext.so|libshim_gui.so \
+    /system/lib/libcam.utils.so|libshim_camera.so \
+    /system/lib64/libcam.utils.so|libshim_camera.so
 
 # Gatekeeper
 BOARD_USE_SOFT_GATEKEEPER := true
