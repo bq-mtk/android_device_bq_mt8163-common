@@ -16,7 +16,6 @@ Signed-off-by: bilux <i.bilux@gmail.com>
  camera/include/camera/CameraParameters.h      |  22 +
  camera/include/camera/MtkCamera.h             | 333 +++++++++
  camera/include/camera/MtkCameraParameters.h   | 651 ++++++++++++++++++
- services/camera/libcameraservice/Android.mk   |   2 +-
  .../libcameraservice/api1/CameraClient.cpp    | 342 ++++++++-
  .../libcameraservice/api1/CameraClient.h      |  27 +
  10 files changed, 2133 insertions(+), 2 deletions(-)
@@ -1916,19 +1915,6 @@ index 0000000..42f0a3f
 +}; // namespace android
 +
 +#endif
-diff --git a/services/camera/libcameraservice/Android.mk b/services/camera/libcameraservice/Android.mk
-index 4686881..b8afbcb 100644
---- a/services/camera/libcameraservice/Android.mk
-+++ b/services/camera/libcameraservice/Android.mk
-@@ -99,7 +99,7 @@ LOCAL_C_INCLUDES += \
- LOCAL_EXPORT_C_INCLUDE_DIRS := \
-     frameworks/av/services/camera/libcameraservice
- 
--LOCAL_CFLAGS += -Wall -Wextra -Werror
-+LOCAL_CFLAGS += -Wall -Wextra -Wno-narrowing
- 
- ifeq ($(TARGET_HAS_LEGACY_CAMERA_HAL1),true)
-     LOCAL_CFLAGS += -DNO_CAMERA_SERVER
 diff --git a/services/camera/libcameraservice/api1/CameraClient.cpp b/services/camera/libcameraservice/api1/CameraClient.cpp
 index a5aa474..f26f4c4 100644
 --- a/services/camera/libcameraservice/api1/CameraClient.cpp
