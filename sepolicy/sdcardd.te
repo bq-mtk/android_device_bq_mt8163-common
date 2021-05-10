@@ -22,8 +22,6 @@ allow sdcardd tmpfs:filesystem unmount;
 # Purpose : invoke vdc for handle_users
 allow sdcardd devpts:chr_file { read write getattr open ioctl };
 allow sdcardd vdc_exec:file { read execute open execute_no_trans };
-allow sdcardd vold:unix_stream_socket connectto;
-allow sdcardd vold_socket:sock_file write;
 
 
 # Date : WK14.48

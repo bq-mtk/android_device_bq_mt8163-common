@@ -257,7 +257,6 @@
 /dev/socket/soc_vt_tcv(/.*)? u:object_r:soc_vt_tcv_socket:s0
 /dev/socket/statusd u:object_r:statusd_socket:s0
 /dev/socket/sysctl(/.*)? u:object_r:sysctl_socket:s0
-/dev/socket/vold(/.*)? u:object_r:vold_socket:s0
 /dev/socket/volte_stack(/.*)? u:object_r:volte_stack_socket:s0
 /dev/socket/volte_imcb(/.*)? u:object_r:volte_imcb_socket:s0
 /dev/socket/volte_ua(/.*)? u:object_r:volte_ua_socket:s0
@@ -523,7 +522,6 @@
 /dev/block/mmcblk0p13    u:object_r:secblock_device:s0
 
 /data/data(/.*)?       u:object_r:system_data_file:s0
-/dev/socket/sdcard u:object_r:vold_socket:s0
 
 # Other
 #/sys/devices/platform/mtk_disp_mgr.0/rgb                        u:object_r:display_color_sysfs:s0
