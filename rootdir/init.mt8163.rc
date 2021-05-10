@@ -1141,11 +1141,9 @@ service atcid-daemon-e /system/bin/atcid
 	oneshot
 
 on property:ro.build.type=eng
-start atci_service
 start atcid-daemon-e
 
 on property:persist.service.atci.autostart=1
-start atci_service
 start atcid-daemon-u
 
 service audio-daemon /system/bin/audiocmdservice_atci
