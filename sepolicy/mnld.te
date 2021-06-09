@@ -84,3 +84,5 @@ allow mnld platformblk_device:dir { search };
 allow mnld apk_data_file:dir { search };
 
 allow mnld system_data_file:file { getattr };
+
+allow mnld gps_device:chr_file { open read write };

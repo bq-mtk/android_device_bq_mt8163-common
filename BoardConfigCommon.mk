@@ -28,7 +28,7 @@ TARGET_KERNEL_SOURCE := kernel/bq/mt8163
 TARGET_USES_64_BIT_BINDER := true
 
 # Boot Image Args
-BOARD_MKBOOTIMG_ARGS := --kernel_offset 0x00008000 --ramdisk_offset 0x03f88000 --second_offset 0x00e88000 --tags_offset 0x0df88000 --base 0x40078000 --cmdline "bootopt=64S3,32N2,64N2 androidboot.selinux=permissive"
+BOARD_MKBOOTIMG_ARGS := --kernel_offset 0x00008000 --ramdisk_offset 0x03f88000 --second_offset 0x00e88000 --tags_offset 0x0df88000 --base 0x40078000 --cmdline "bootopt=64S3,32N2,64N2"
 
 # MediaTek Boot Image Headers
 BOARD_CUSTOM_BOOTIMG_MK := $(COMMON_PATH)/mkbootimg.mk
@@ -110,7 +110,6 @@ WIFI_DRIVER_STATE_OFF := 0
 
 # Sepolicy
 BOARD_SEPOLICY_DIRS += $(COMMON_PATH)/sepolicy
-SELINUX_IGNORE_NEVERALLOWS := true
 
 # Shims
 TARGET_LD_SHIM_LIBS := \

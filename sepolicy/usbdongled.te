@@ -20,3 +20,7 @@ allow usbdongled shell_exec:file rx_file_perms;
 
 #unix_socket_connect(usbdongled, property, init) @daniel, use set_prop()
 #set_prop(usbdongled, init)
+
+allow usbdongled self:netlink_kobject_uevent_socket { bind create read setopt };
+allow usbdongled sysfs:dir { open read };
+allow usbdongled sysfs:file { open read };

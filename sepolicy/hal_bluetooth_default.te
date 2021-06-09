@@ -12,3 +12,6 @@ allow hal_bluetooth_default kmsg_device:chr_file { open read write };
 # oreo Bluetooth
 #allow hal_bluetooth_default hal_bluetooth_hwservice:hwservice_manager { find add };
 #allow hal_bluetooth_default hidl_base_hwservice:hwservice_manager { add };
+
+allow hal_bluetooth_default block_device:dir search;
+allow hal_bluetooth_default nvram_data_file:dir search;

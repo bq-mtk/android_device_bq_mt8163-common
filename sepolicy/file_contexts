@@ -159,7 +159,7 @@
 /dev/mt9p012(/.*)? u:object_r:mt9p012_device:s0
 /dev/mtfreqhopping(/.*)? u:object_r:mtfreqhopping_device:s0
 /dev/mtgpio(/.*)? u:object_r:mtgpio_device:s0
-#/dev/mtk-adc-cali(/.*)? u:object_r:mtk_adc_cali_device:s0
+/dev/mtk-adc-cali(/.*)? u:object_r:mtk_adc_cali_device:s0
 /dev/mtk_disp.* u:object_r:graphics_device:s0
 /dev/mtkfb_vsync(/.*)? u:object_r:graphics_device:s0
 /dev/mtkg2d(/.*)? u:object_r:mtkg2d_device:s0
@@ -309,6 +309,8 @@
 /dev/offloadservice(/.*)? u:object_r:offloadservice_device:s0
 /dev/irtx u:object_r:irtx_device:s0
 /dev/spm(/.*)? u:object_r:spm_device:s0
+/dev/trustzone	u:object_r:tee_device:s0
+/dev/gps(/.*)? u:object_r:gps_device:s0
 
 /dev/xt_qtaguid(/.*)? u:object_r:xt_qtaguid_device:s0
 /dev/pmic_ftm(/.*)? u:object_r:pmic_ftm_device:s0
@@ -478,6 +480,7 @@
 /(system|system\/vendor|vendor)/bin/vtservice u:object_r:vtservice_exec:s0
 /(system|system\/vendor|vendor)/bin/hotknot_native_service u:object_r:hotknot_native_exec:s0
 /(system|system\/vendor|vendor)/bin/pppd_btdun u:object_r:pppd_btdun_exec:s0
+/(system|system\/vendor|vendor)/bin/kisd                        u:object_r:kisd_exec:s0
 
 
 #fat on nand image
@@ -578,6 +581,7 @@
 #/(vendor|system/vendor)/bin/hw/vendor\.mediatek\.hardware\.imsa@1\.0-service	u:object_r:hal_imsa_service_exec:s0
 
 #lights
-#/(vendor|system/vendor)/bin/hw/android\.hardware\.light@2\.0-service-mediatek	u:object_r:hal_lights_service_mediatek_exec:s0
+/(vendor|system/vendor)/bin/hw/android\.hardware\.light@2\.0-service-mediatek	u:object_r:hal_light_default_exec:s0
 
-
+#sensors
+/(vendor|system/vendor)/bin/hw/android\.hardware\.sensors@1\.0-service-mediatek	u:object_r:hal_sensors_default_exec:s0

@@ -1,0 +1,9 @@
+type kisd, domain;
+type kisd_exec, exec_type, file_type;
+
+init_daemon_domain(kisd)
+
+allow kisd block_device:dir search;
+allow kisd tee_device:chr_file {read write open ioctl};
+allow kisd system_file:file {execute_no_trans};
+allow kisd platformblk_device:dir search;

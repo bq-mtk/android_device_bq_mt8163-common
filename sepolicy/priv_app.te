@@ -7,3 +7,21 @@ allow priv_app pq_service:service_manager find;
 # dev_info
 allow priv_app sysfs_devinfo:file r_file_perms;
 allow priv_app kernel:system { module_request };
+
+allow priv_app persist_service_atci_prop:file { getattr open };
+allow priv_app pppoe_ppp0_prop:file getattr;
+allow priv_app pq_conf_prop:file open;
+allow priv_app proc_interrupts:file open;
+allow priv_app ril_cdma_report_prop:file getattr;
+allow priv_app terservice_prop:file open;
+allow priv_app vold_encryption_type_prop:file { getattr open };
+allow priv_app volte_prop:file { getattr open };
+
+allow priv_app device:dir open;
+allow priv_app gsm0710muxd_prop:file { getattr open };
+allow priv_app nvram_prop:file { getattr open };
+allow priv_app ril_msim_power_prop:file { getattr open };
+allow priv_app ril_mux_report_case_prop:file open;
+allow priv_app ril_sim_inserted_status:file { getattr open };
+allow priv_app ro_ril_ecclist_prop:file open;
+allow priv_app save_locale_prop:file { getattr open };
