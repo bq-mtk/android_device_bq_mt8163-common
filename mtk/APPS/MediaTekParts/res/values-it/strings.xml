@@ -4,12 +4,7 @@
     <string name="app_name">MediaTek Parts</string>
 
     <!-- Preference groups -->
-    <string name="gestures_settings_title">Gesti</string>
     <string name="hdmi_settings_title">HDMI</string>
-
-    <!-- Gestures -->
-    <string name="pref_dt2w_title">D2TW (Double Tap To Wake)</string>
-    <string name="pref_dt2w_description">Abilita/Disabilita la funzione \"Doppio Tocco Per Riattivare\" (DT2W).</string>
 
     <!-- HDMI -->
     <string name="pref_hdmi_title">HDMI</string>

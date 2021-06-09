@@ -14,20 +14,6 @@ final class SystemPropertiesReflection {
 
     private static final String TAG = "MediaTekParts";
 
-    static String GetSystemString(String name, String def)
-    {
-        try {
-            Class<?> systemProperties = Class.forName("android.os.SystemProperties");
-            Method method = systemProperties.getDeclaredMethod("get", String.class, String.class);
-            String propertyValue = (String)method.invoke(systemProperties, name, def);
-            Log.d(TAG, "GetSystemString: prop=" + name + " value=" + propertyValue);
-            return propertyValue;
-        } catch (Exception ex) {
-            Log.e(TAG, "GetSystemString: " + ex.getMessage());
-        }
-        return def;
-    }
-
     static void SetSystemString(String name, String val)
     {
         try {
@@ -38,19 +24,5 @@ final class SystemPropertiesReflection {
         } catch (Exception ex) {
             Log.e(TAG, "SetSystemString: " + ex.getMessage());
         }
-    }
-
-    static boolean GetSystemBoolean(String name, boolean def)
-    {
-        try {
-            Class<?> systemProperties = Class.forName("android.os.SystemProperties");
-            Method method = systemProperties.getDeclaredMethod("getBoolean", String.class, boolean.class);
-            boolean propertyValue = (boolean)method.invoke(systemProperties, name, def);
-            Log.d(TAG, "GetSystemBoolean: prop=" + name + " value=" + propertyValue);
-            return propertyValue;
-        } catch (Exception ex) {
-            Log.e(TAG, "GetSystemBoolean: " + ex.getMessage());
-        }
-        return def;
     }
 }

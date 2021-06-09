@@ -4,8 +4,6 @@
 
 package com.r0rt1z2.mediatekparts;
 
-import java.io.*;
-
 import android.os.Bundle;
 import android.app.AlertDialog;
 import android.app.Activity;
@@ -17,18 +15,14 @@ import android.preference.PreferenceFragment;
 import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View.OnClickListener;
 import com.android.settingslib.drawer.SettingsDrawerActivity;
-
-import com.r0rt1z2.mediatekparts.Functions;
 
 public class SettingsActivity extends SettingsDrawerActivity {
 
     private static final String TAG = "MediaTekParts";
     private static final String PROPERTY_HDMI_HANDLER = "sys.service.hdmi.enable";
-    private static final String STRING_NULL = "null";
     private static final int MENU_REBOOT = Menu.FIRST;
 
     @Override
@@ -56,8 +50,7 @@ public class SettingsActivity extends SettingsDrawerActivity {
 
         switch (id) {
             case MENU_REBOOT: {
-
-                /* Shows the reboot confirmation dialog */
+                // Shows the reboot confirmation dialog
                 AlertDialog.Builder alertBuilder = new AlertDialog.Builder(this);
                 alertBuilder.setMessage(R.string.action_reboot_description);
                 alertBuilder.setCancelable(true);
@@ -118,34 +111,19 @@ public class SettingsActivity extends SettingsDrawerActivity {
         public void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
 
-            String actualString;
-            boolean actualBool, functionAvailable;
-            SwitchPreference switchPref;
-
-            /* Load the preferences from an XML resource */
+            // Load the preferences from an XML resource
             addPreferencesFromResource(R.layout.preferences);
             preferenceManager = PreferenceManager.getDefaultSharedPreferences(globalContext);
 
-            /* Set UP Double-Tap-To-Wake */
-            switchPref = (SwitchPreference)findPreference("pref_dt2w");
-            functionAvailable = Functions.IsDT2WAvailable();
-            boolean savedValue = preferenceManager.getBoolean("pref_dt2w", false);
-            if (functionAvailable) {
-                if (savedValue) {
-                    switchPref.setChecked(savedValue);
-                    Functions.SetDT2WValue(savedValue);
-                }
-            } else {
-                switchPref.setEnabled(false);
-            }
-
-            /* Set UP HDMI */
-            switchPref = (SwitchPreference)findPreference("pref_hdmi");
-            savedValue = preferenceManager.getBoolean("pref_hdmi", false);
+            // Set UP HDMI
+            SwitchPreference switchPref = (SwitchPreference)findPreference("pref_hdmi");
+            boolean savedValue = preferenceManager.getBoolean("pref_hdmi", false);
             if (savedValue) {
                 int hdmi_on = 1;
                 switchPref.setChecked(savedValue);
-            } else { int hdmi_on = 0; }
+            } else {
+                int hdmi_on = 0;
+            }
             SystemPropertiesReflection.SetSystemString(PROPERTY_HDMI_HANDLER, "1");
             
         }
@@ -158,11 +136,6 @@ public class SettingsActivity extends SettingsDrawerActivity {
             SharedPreferences.Editor editor = preferenceManager.edit();
 
             switch (resourceIndex) {
-                case R.string.pref_dt2w_key: {
-                    Functions.SetDT2WValue(newValue);
-                    editor.putBoolean("pref_dt2w", newValue);
-                    break;
-                }
                 case R.string.pref_hdmi_key: {
                     SystemPropertiesReflection.SetSystemString(PROPERTY_HDMI_HANDLER, newValue ? "1" : "0");
                     editor.putBoolean("pref_hdmi", newValue);

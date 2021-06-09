@@ -1,17 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
     android:key="preferences">
-
-    <!-- Gestures -->
-    <PreferenceCategory
-            android:key="gestures_settings"
-            android:title="@string/gestures_settings_title">
-        <SwitchPreference
-            android:key="@string/pref_dt2w_key"
-            android:summary="@string/pref_dt2w_description"
-            android:title="@string/pref_dt2w_title" />
-    </PreferenceCategory>
-
     <!-- HDMI -->
     <PreferenceCategory
             android:key="hdmi_settings"
