@@ -212,6 +212,18 @@ typedef enum {
                                    give time for gapless track switch */
 } audio_drain_type_t;
 
+typedef struct source_metadata {
+    size_t track_count;
+    /** Array of metadata of each track connected to this source. */
+    struct playback_track_metadata* tracks;
+} source_metadata_t;
+
+typedef struct sink_metadata {
+    size_t track_count;
+    /** Array of metadata of each track connected to this sink. */
+    struct record_track_metadata* tracks;
+} sink_metadata_t;
+
 /**
  * audio_stream_out is the abstraction interface for the audio output hardware.
  *
@@ -403,6 +415,13 @@ struct audio_stream_out {
      */
     int (*get_mmap_position)(const struct audio_stream_out *stream,
                              struct audio_mmap_position *position);
+
+    /**
+     * Called when the metadata of the stream's source has been changed.
+     * @param source_metadata Description of the audio that is played by the clients.
+     */
+    void (*update_source_metadata)(struct audio_stream_out *stream,
+                                   const struct source_metadata* source_metadata);
 };
 typedef struct audio_stream_out audio_stream_out_t;
 
@@ -512,6 +531,13 @@ struct audio_stream_in {
      */
     int (*get_mmap_position)(const struct audio_stream_in *stream,
                              struct audio_mmap_position *position);
+
+    /**
+     * Called when the metadata of the stream's sink has been changed.
+     * @param sink_metadata Description of the audio that is recorded by the clients.
+     */
+    void (*update_sink_metadata)(struct audio_stream_in *stream,
+                                 const struct sink_metadata* sink_metadata);
 };
 typedef struct audio_stream_in audio_stream_in_t;
 
