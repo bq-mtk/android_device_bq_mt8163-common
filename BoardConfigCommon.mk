@@ -114,7 +114,6 @@ SELINUX_IGNORE_NEVERALLOWS := true
 
 # Shims
 TARGET_LD_SHIM_LIBS := \
-	/system/vendor/lib/libwvm.so|libshim_wvm.so \
 	/system/bin/kpoc_charger|libshim_media.so \
 	/system/bin/xlog|libshim_xlog.so \
 	/system/lib/libshowlogo.so|libshim_media.so \

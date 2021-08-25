@@ -144,18 +144,6 @@ LOCAL_MODULE_TAGS := optional
 LOCAL_PROPRIETARY_MODULE := true
 include $(BUILD_SHARED_LIBRARY)
 
-# WVM Shim
-include $(CLEAR_VARS)
-
-LOCAL_SRC_FILES := wvm/wvm_shim.cpp
-
-LOCAL_MODULE := libshim_wvm
-
-LOCAL_SHARED_LIBRARIES := liblog libstagefright_foundation libmedia libstagefright_omx libdrmframework libstagefright
-LOCAL_MODULE_TAGS := optional
-LOCAL_PROPRIETARY_MODULE := true
-include $(BUILD_SHARED_LIBRARY)
-
 # MsensorDaemon Shim
 include $(CLEAR_VARS)
 
