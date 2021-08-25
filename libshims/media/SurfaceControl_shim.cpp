@@ -16,6 +16,7 @@
 
 #define LOG_TAG "SurfaceControl_shim"
 
+#include <inttypes.h>
 #include <stdint.h>
 #include <sys/types.h>
 #include <sys/stat.h>
@@ -54,7 +55,7 @@ android::SurfaceComposerClient::Transaction *t;
 extern "C" {
     extern void _ZN7android14SurfaceControl8setLayerEi(int32_t) {}
     extern void _ZN7android14SurfaceControl7destroyEv(void);
-    extern void *_ZN7android21SurfaceComposerClient23getPhysicalDisplayTokenEy(unsigned long long);
+    extern void *_ZN7android21SurfaceComposerClient23getPhysicalDisplayTokenEy(unsigned long long) { return 0; } /*FIXME*/
 
     void _ZN7android21SurfaceComposerClient13createSurfaceERKNS_7String8EjjijPNS_14SurfaceControlEjj(
 	    android::String8 const & s,
@@ -127,7 +128,7 @@ extern "C" {
         _ZN7android14SurfaceControl7destroyEv();
     }
 
-    void* _ZN7android21SurfaceComposerClient17getBuiltInDisplayEi(int32_t id) {
+    void *_ZN7android21SurfaceComposerClient17getBuiltInDisplayEi(int32_t id) {
         return _ZN7android21SurfaceComposerClient23getPhysicalDisplayTokenEy(static_cast<uint64_t>(id));
     }
 }
